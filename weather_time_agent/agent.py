@@ -37,7 +37,6 @@ def get_geocoding(city: str, country: str) -> dict:
 
     for entry in json_data["results"]:
         try:
-            #if entry["country"].lower() == country.lower() or entry["country_code"].lower() == country.lower():
             if entry["country"].lower() == country.lower():
                 return {"latitude": entry["latitude"], "longitude": entry["longitude"]}
         except KeyError:
