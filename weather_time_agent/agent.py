@@ -35,12 +35,15 @@ def get_geocoding(city: str, country: str) -> dict:
         return None
     json_data = json.loads(response.text)
 
-    for entry in json_data["results"]:
-        try:
-            if entry["country"].lower() == country.lower():
-                return {"latitude": entry["latitude"], "longitude": entry["longitude"]}
-        except KeyError:
-            return None
+    try:
+        for entry in json_data["results"]:
+            try:
+                if entry["country"].lower() == country.lower():
+                    return {"latitude": entry["latitude"], "longitude": entry["longitude"]}
+            except KeyError:
+                return None
+    except KeyError:
+        return None
 
 
 def find_current_weather(latitude: float, longitude: float) -> float:
