@@ -5,6 +5,8 @@ from timezonefinder import TimezoneFinder
 import pytz
 from datetime import datetime
 from google.adk.agents import Agent
+from google.genai import types  # this is needed for GenerateContentConfig
+
 
 
 model="gemini-2.0-flash"
@@ -129,6 +131,12 @@ weather_agent = Agent(
 time_agent = Agent(
     name="time_agent",
     model=model,
+    generate_content_config=types.GenerateContentConfig(
+        temperature=0.9,
+        top_p=0.9,
+        top_k=40,
+        max_output_tokens=250
+    ),
     description=(
         "Agent to answer questions about the date and time of a city."
     ),
