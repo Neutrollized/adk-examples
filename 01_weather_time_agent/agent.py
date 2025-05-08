@@ -8,6 +8,9 @@ from google.adk.agents import Agent
 from google.genai import types  # this is needed for GenerateContentConfig
 
 
+#-------------------
+# settings
+#-------------------
 model="gemini-2.0-flash"
 
 

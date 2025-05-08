@@ -1,2 +1,2 @@
-fastmcp == 2.2.9
+fastmcp == 2.2.10
 asyncio == 3.4.3
