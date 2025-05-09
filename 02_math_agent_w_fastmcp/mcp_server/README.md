@@ -40,4 +40,4 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-As you can see in the above output, it create a secure tunnel from a randomly generated public URL to my localhost, and now I can pass this URL as an environment variable to my agent.
+As you can see in the above output, it created a secure tunnel from a randomly generated public URL to my localhost, and now I can pass this URL as an environment variable to my agent.

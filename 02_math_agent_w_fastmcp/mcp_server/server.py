@@ -20,8 +20,13 @@ def multiply(a: int, b: int) -> int:
     return a * b
 
 @mcp.tool()
-def divide(a: int, b: int) -> int:
+def divide(a: int, b: int) -> float:
     """Divide two numbers"""
+    return a / b
+
+@mcp.tool()
+def quotient(a: int, b: int) -> int:
+    """Divide two numbers, ignoring remainder"""
     return a // b
 
 
