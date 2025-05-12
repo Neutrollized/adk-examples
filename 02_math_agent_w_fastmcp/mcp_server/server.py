@@ -31,4 +31,4 @@ def quotient(a: int, b: int) -> int:
 
 
 if __name__ == "__main__":
-    asyncio.run(mcp.run_sse_async(host="0.0.0.0", port=8080))
+    asyncio.run(mcp.run(transport="sse", host="0.0.0.0", port=8080))

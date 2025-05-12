@@ -1,3 +1,6 @@
 .python-version
-*/__pycache__
+**/__pycache__
 */.env
+
+# misc
+**/.DS_Store
