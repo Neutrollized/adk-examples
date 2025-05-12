@@ -2,13 +2,21 @@
 
 Repo with example code for building various types of agents using [ADK](https://google.github.io/adk-docs/)
 
-- `.env` file in your agent's folder
+## Setup
+- install Python module (`pip install google-adk`)
+
+- `.env` file in your agent's folder (Google AI Studio)
+```
+GOOGLE_GENAI_USE_VERTEXAI=FALSE
+GOOGLE_API_KEY=a1b2c3yourapikeyherex7y8z9
+```
+
+- `.env` file in your agent's folder (Vertex AI)
 ```
 GOOGLE_GENAI_USE_VERTEXAI=TRUE
 GOOGLE_CLOUD_PROJECT=myproject-123
 GOOGLE_CLOUD_LOCATION=us-central1
 ```
-
 **NOTE:** while you can use any location you wish, not all locations supports every Gemini model
 
 
