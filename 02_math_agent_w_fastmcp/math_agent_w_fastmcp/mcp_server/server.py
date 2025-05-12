@@ -32,4 +32,5 @@ def quotient(a: int, b: int) -> int:
 
 # https://gofastmcp.com/deployment/running-server
 if __name__ == "__main__":
-    asyncio.run(mcp.run(transport="sse", host="0.0.0.0", port=8080))
+    #asyncio.run(mcp.run(transport="sse", host="0.0.0.0", port=8080))
+    asyncio.run(mcp.run(transport="streamable-http", host="0.0.0.0", port=8080))

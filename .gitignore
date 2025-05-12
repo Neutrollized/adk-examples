@@ -1,6 +1,6 @@
 .python-version
 **/__pycache__
-*/.env
+**/.env
 
 # misc
 **/.DS_Store

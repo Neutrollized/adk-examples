@@ -12,6 +12,7 @@ from google.genai import types  # this is needed for GenerateContentConfig
 # settings
 #-------------------
 model="gemini-2.0-flash"
+verify=True
 
 
 #-------------------
@@ -30,7 +31,7 @@ def get_geocoding(city: str, country: str) -> dict:
 
     query=f"{url}?name={city}"
     try:
-        response = requests.get(query)
+        response = requests.get(query, verify=verify)
     except requests.exceptions.Timeout as e:
         print(f"Timeout error: {e}")
         return None
@@ -63,7 +64,7 @@ def find_current_weather(latitude: float, longitude: float) -> float:
 
     query=f"{url}?latitude={latitude}&longitude={longitude}&current=temperature_2m"
     try:
-        response = requests.get(query)
+        response = requests.get(query, verify=verify)
     except requests.exceptions.Timeout as e:
         print(f"Timeout error: {e}")
         return None

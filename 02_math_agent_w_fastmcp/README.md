@@ -1,9 +1,22 @@
 # Math Agent with FastMCP Server
 Building on the [MCP tools example](https://google.github.io/adk-docs/tools/mcp-tools/#example-3-fastmcp-server) from the ADK documentation, I added additional tools to the [FastMCP server](./mcp_server/server.py) and instead of deploying to [Cloud Run](https://cloud.google.com/run) -- which I love -- I'm using a tool called [ngrok](https://ngrok.com/) to facilitate faster development and local testing. 
 
-**NOTE:** before you run the agent, make sure you export the `FASTMCP_SERVER_URL` environment variable (whether that's a Cloud Run URL or ngrok generated URL)
 
-- sample terminal output from `adk run 02_math_agent_w_fastmcp`:
+## Running Agent
+- [start the FastMCP server](./math_agent_w_fastmcp/mcp_server/README.md)
+- export the `FASTMCP_SERVER_URL` environment variable (whether that's a Cloud Run URL or ngrok generated URL)
+
+- ADK dev UI (http://localhost:8000):
+```
+adk web
+```
+
+- ADK cli/terminal:
+```
+adk run math_agent_w_fastmcp
+```
+
+- sample terminal output from `adk run math_agent_w_fastmcp`:
 ```console
 Running agent math_agent, type exit to exit.
 [user]: what's 6/2+9*9

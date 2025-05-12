@@ -2,8 +2,18 @@
 
 Agent that can tell you the date/time and weather of a given city, country. Uses sub-agents to handle weather and date/time separately. 
 
+## Running Agent
+- ADK dev UI (http://localhost:8000):
+```
+adk web
+```
 
-- sample terminal output from `adk run 01_weather_time_agent`:
+- ADK cli/terminal:
+```
+adk run weather_time_agent
+```
+
+- sample terminal output from `adk run weather_time_agent`:
 ```console
 Running agent root_agent, type exit to exit.
 user: what's the time in pune, india?

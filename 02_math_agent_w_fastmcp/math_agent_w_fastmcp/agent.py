@@ -29,7 +29,7 @@ async def get_sum(a: int, b: int) -> int:
     """
     tools, _ = await MCPToolset.from_server(
         connection_params=SseServerParams(
-            url=fastmcp_server_url + "/sse",
+            url=fastmcp_server_url + "/mcp",
         ),
         async_exit_stack=AsyncExitStack()
     )
