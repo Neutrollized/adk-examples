@@ -32,5 +32,11 @@ def quotient(a: int, b: int) -> int:
 
 # https://gofastmcp.com/deployment/running-server
 if __name__ == "__main__":
-    #asyncio.run(mcp.run(transport="sse", host="0.0.0.0", port=8080))
-    asyncio.run(mcp.run(transport="streamable-http", host="0.0.0.0", port=8080))
+    try:
+        asyncio.run(mcp.run(transport="sse", host="0.0.0.0", port=8080))
+    except KeyboardInterrupt:
+        print("\nFastMCP Math Server stopped by user.")
+    except Exception as e:
+        print(f"FastMCP Math Server encountered error: {e}")
+    finally:
+        print("FastMCP Math Server exiting.")
