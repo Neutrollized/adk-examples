@@ -3,7 +3,7 @@
 Repo with example code for building various types of agents using [ADK](https://google.github.io/adk-docs/)
 
 ## Setup
-- install Python module (`pip install google-adk`)
+- install required Python packages/modules: `pip install -r requirements.txt`
 
 - `.env` file in your agent's folder (Google AI Studio)
 ```

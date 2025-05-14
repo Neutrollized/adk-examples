@@ -38,3 +38,24 @@ user: exit
 ```
 
 Notice how it was about to correct me on the misspelling of "Cyprus" and ask for validation.
+
+
+## Testing
+The following testing commands are executed from the `01_weather_time_agent` directory.
+
+**NOTE**: currently there are some bugs with pytest test and ADK evaluations
+
+### pytest
+- [documentation](https://google.github.io/adk-docs/evaluate/#2-pytest-run-tests-programmatically)
+```sh
+PYTHONTRACEMALLOC=1 pytest -v eval
+```
+
+### adk eval
+- [documentation](https://google.github.io/adk-docs/evaluate/#3-adk-eval-run-evaluations-via-the-cli)
+```sh
+adk eval \
+    weather_time_agent \
+    eval/data/weather.test.json:eval/data/weather_fail.test.json \
+    --config_file_path eval/data/test_config.json
+```

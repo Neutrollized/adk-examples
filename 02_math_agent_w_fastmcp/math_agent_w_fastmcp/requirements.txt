@@ -1,4 +1,0 @@
-google-adk == 0.5.0
-google-genai == 1.14.0
-asyncio == 3.4.3
-asyncstdlib == 3.13.1
