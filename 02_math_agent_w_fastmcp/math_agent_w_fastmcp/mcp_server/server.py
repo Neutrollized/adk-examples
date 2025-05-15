@@ -22,7 +22,6 @@ mcp = FastMCP(
     port=port
 )
 
-
 @mcp.tool()
 def add(a: int, b: int) -> int:
     """Add two numbers"""
