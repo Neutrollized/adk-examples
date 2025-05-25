@@ -1,3 +1,4 @@
+"""This module provides tools for weather and time related information."""
 import requests
 import json
 from timezonefinder import TimezoneFinder
@@ -8,6 +9,7 @@ from datetime import datetime
 #-------------------
 # settings
 #-------------------
+# SSL verification for requests
 verify=True
 
 

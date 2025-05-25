@@ -1,3 +1,4 @@
+"""This module defines a FastMCP server for basic arithmetic operations."""
 import os
 import asyncio
 
@@ -7,8 +8,11 @@ from fastmcp import FastMCP
 #---------------
 # settings
 #---------------
+# Host for the FastMCP server
 host=os.environ.get("FASTMCP_HOST", "0.0.0.0")
+# Port for the FastMCP server
 port=os.environ.get("FASTMCP_PORT", 8080)
+# Transport protocol for the FastMCP server (e.g., sse, streamable-http)
 transport=os.environ.get("FASTMCP_TRANSPORT", "sse")    # sse, streamable-http, etc.
 
 
@@ -16,32 +20,38 @@ transport=os.environ.get("FASTMCP_TRANSPORT", "sse")    # sse, streamable-http, 
 # mcp
 #-------------
 # https://gofastmcp.com/servers/fastmcp#server-configuration
+# Initialize FastMCP server
 mcp = FastMCP(
     name="FastMCP Math Server",
     host=host,
     port=port
 )
 
+# Tool to add two numbers.
 @mcp.tool()
 def add(a: int, b: int) -> int:
     """Add two numbers"""
     return a + b
 
+# Tool to subtract two numbers.
 @mcp.tool()
 def subtract(a: int, b: int) -> int:
     """Subtract two numbers"""
     return a - b
 
+# Tool to multiply two numbers.
 @mcp.tool()
 def multiply(a: int, b: int) -> int:
     """Multiply two numbers"""
     return a * b
 
+# Tool to divide two numbers, returning a float.
 @mcp.tool()
 def divide(a: int, b: int) -> float:
     """Divide two numbers"""
     return a / b
 
+# Tool to divide two numbers, returning the integer quotient.
 @mcp.tool()
 def quotient(a: int, b: int) -> int:
     """Divide two numbers, ignoring remainder"""

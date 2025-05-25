@@ -1,6 +1,8 @@
 # Weather & Time agent
 
-Agent that can tell you the date/time and weather of a given city, country. Uses sub-agents to handle weather and date/time separately. 
+This agent can tell you the date/time and weather of a given city and country. It utilizes two sub-agents:
+- `time_agent`: Handles queries related to the current date and time.
+- `weather_agent`: Handles queries related to the current weather.
 
 ## Running Agent
 - ADK dev UI (http://localhost:8000):

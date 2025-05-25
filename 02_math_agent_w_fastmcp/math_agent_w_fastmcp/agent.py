@@ -1,3 +1,4 @@
+"""This module defines a math agent that uses FastMCP for tool execution."""
 import os
 import asyncio
 from contextlib import AsyncExitStack
@@ -10,13 +11,16 @@ from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, SseServerParams
 #-----------------
 # settings
 #-----------------
+# Model to be used by the agent
 model="gemini-2.0-flash"
+# URL for the FastMCP server
 fastmcp_server_url=os.environ.get("FASTMCP_SERVER_URL")
 
 
 #-----------------
 # tools
 #-----------------
+# Asynchronously calculates the sum of two numbers using FastMCP.
 async def get_sum(a: int, b: int) -> int:
     """Calculate the sum of two numbers.
 
@@ -42,6 +46,7 @@ async def get_sum(a: int, b: int) -> int:
         tool_context=None,
     )
 
+# Asynchronously calculates the difference of two numbers using FastMCP.
 async def get_difference(a: int, b: int) -> int:
     """Calculate the difference of two numbers.
 
@@ -67,6 +72,7 @@ async def get_difference(a: int, b: int) -> int:
         tool_context=None,
     )
 
+# Asynchronously calculates the product of two numbers using FastMCP.
 async def get_product(a: int, b: int) -> int:
     """Calculate the product of two numbers.
 
@@ -92,6 +98,7 @@ async def get_product(a: int, b: int) -> int:
         tool_context=None,
     )
 
+# Asynchronously calculates the division of two numbers using FastMCP.
 async def get_division(a: int, b: int) -> float:
     """Calculate the division of two numbers.
 
@@ -117,6 +124,7 @@ async def get_division(a: int, b: int) -> float:
         tool_context=None,
     )
 
+# Asynchronously calculates the quotient of two numbers using FastMCP.
 async def get_quotient(a: int, b: int) -> int:
     """Calculate the quotient of two numbers.
 
