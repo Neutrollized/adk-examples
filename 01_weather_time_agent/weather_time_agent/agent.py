@@ -1,3 +1,4 @@
+"""This module defines agents for weather and time inquiries."""
 import logging
 import sys
 from google.adk.agents import Agent
@@ -21,6 +22,7 @@ model="gemini-2.0-flash"
 #-----------------
 # agents
 #-----------------
+# Agent specifically for handling weather-related queries.
 weather_agent = Agent(
     name="weather_agent",
     model=model,
@@ -36,6 +38,7 @@ weather_agent = Agent(
     ],
 )
 
+# Agent specifically for handling time-related queries.
 time_agent = Agent(
     name="time_agent",
     model=model,
@@ -58,6 +61,7 @@ time_agent = Agent(
     ],
 )
 
+# Root agent that directs queries to the appropriate sub-agent (weather or time).
 root_agent = Agent(
     name="root_agent",
     model=model,

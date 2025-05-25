@@ -1,5 +1,13 @@
 # Math Agent with FastMCP Server
-Building on the [MCP tools example](https://google.github.io/adk-docs/tools/mcp-tools/#example-3-fastmcp-server) from the ADK documentation, I added additional tools to the [FastMCP server](./math_agent_w_fastmcp/mcp_server/server.py) and instead of deploying to [Cloud Run](https://cloud.google.com/run) -- which I love -- I'm using a tool called [ngrok](https://ngrok.com/) to facilitate faster development and local testing. 
+This agent performs basic arithmetic operations. It builds on the [MCP tools example](https://google.github.io/adk-docs/tools/mcp-tools/#example-3-fastmcp-server) from the ADK documentation.
+The agent uses a [FastMCP server](./math_agent_w_fastmcp/mcp_server/server.py) that provides tools for:
+- Addition
+- Subtraction
+- Multiplication
+- Division (float result)
+- Quotient (integer result)
+
+Instead of deploying to [Cloud Run](https://cloud.google.com/run), this example uses [ngrok](https://ngrok.com/) to facilitate faster development and local testing.
 
 
 ## Running Agent
