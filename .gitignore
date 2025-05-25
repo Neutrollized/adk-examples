@@ -1,6 +1,10 @@
 .python-version
 **/__pycache__
+**/.pytest_cache
 **/.env
+
+# where "adk eval" results are stored
+**/.adk
 
 # misc
 **/.DS_Store

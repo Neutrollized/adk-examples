@@ -1,11 +1,14 @@
-google-adk == 0.5.0
-google-genai == 1.15.0
+google-adk >= 1.0.0
+google-genai == 1.16.1
 asyncio == 3.4.3
 asyncstdlib == 3.13.1
 
+# agent engine
+google-cloud-aiplatform[adk,agent_engines]
+
 # mcp
-fastmcp == 2.3.3
-mcp == 1.8.1
+fastmcp == 2.5.1
+mcp == 1.9.1
 
 # testing/evaluation
 pytest == 8.3.5

@@ -1,6 +1,8 @@
 import logging
 import sys
 from google.adk.agents import Agent
+from google.adk.runners import Runner
+from google.adk.sessions import InMemorySessionService
 from google.genai import types  # this is needed for GenerateContentConfig
 
 from .tools.tools import (
@@ -69,3 +71,18 @@ root_agent = Agent(
         time_agent
     ],
 )
+
+
+
+#------------
+# session
+#------------
+APP_NAME = "weather_time_app"
+USER_ID = "user_1234"
+SESSION_ID = "session1234"
+
+# Session and Runner
+session_service = InMemorySessionService()
+#session = session_service.create_session(app_name=APP_NAME, user_id=USER_ID, session_id=SESSION_ID)
+session = session_service.create_session(app_name=APP_NAME, user_id=USER_ID)
+runner = Runner(agent=root_agent, app_name=APP_NAME, session_service=session_service)
