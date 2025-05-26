@@ -1,0 +1,335 @@
+{
+  "eval_set_id": "math",
+  "name": "math",
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "case0e02e6",
+      "conversation": [
+        {
+          "invocation_id": "e-b28e3e35-69f4-4116-96a0-c149411cc691",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "hi"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "Hi there! How can I help you today?\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1748270929.357703
+        },
+        {
+          "invocation_id": "e-f1ce6d50-8fef-4876-84fc-9de16f6c4e60",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what can you do?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "I can perform basic arithmetic operations, including addition, subtraction, multiplication, division, and quotient (division ignoring remainder). Just let me know what you'd like me to calculate!\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1748270933.667832
+        },
+        {
+          "invocation_id": "e-7e40b298-aa2c-4edd-a2f6-a1a6f4b2a54e",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what's 4+45?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "4 + 45 = 49\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-56c76980-86b3-4a88-a98a-fbf92d0b1b1a",
+                "args": {
+                  "a": 4,
+                  "b": 45
+                },
+                "name": "add"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1748270941.736965
+        },
+        {
+          "invocation_id": "e-67b44d44-3fe4-4942-81c4-d999c4c17f36",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what about 6/3+8*5?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "6 / 3 = 2.0 and 8 * 5 = 40. So, 2.0 + 40 = 42.0\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-cf96b4cd-ac76-430c-96fe-e33f5d7a2ffd",
+                "args": {
+                  "a": 6,
+                  "b": 3
+                },
+                "name": "divide"
+              },
+              {
+                "id": "adk-9bdeaf03-5332-4807-bbdf-dfe60ffbc291",
+                "args": {
+                  "a": 8,
+                  "b": 5
+                },
+                "name": "multiply"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1748270964.123317
+        },
+        {
+          "invocation_id": "e-ea199bc9-0646-416e-afce-a498bbb3a336",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "Alice brought 12 pizzas. Bob brought 8 pizzas. Charlie brought 5 pizzas. There are 8 slices per pizza. If there are 50 people sharing the pizzas, how many slices do each person get?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "Alice, Bob, and Charlie brought a total of 12 + 8 + 5 = 25 pizzas.\nThere are 25 * 8 = 200 slices in total.\nEach person gets 200 / 50 = 4 slices.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-09426f23-f37e-4e44-9aa2-0cc1c760c0be",
+                "args": {
+                  "a": 12,
+                  "b": 8
+                },
+                "name": "add"
+              },
+              {
+                "id": "adk-8867ff9c-145a-4ea5-912b-c06a95b0015d",
+                "args": {
+                  "a": 20,
+                  "b": 5
+                },
+                "name": "add"
+              },
+              {
+                "id": "adk-63c79a30-2d40-4187-ad76-4818a4e7c9f7",
+                "args": {
+                  "a": 25,
+                  "b": 8
+                },
+                "name": "multiply"
+              },
+              {
+                "id": "adk-84b7ef31-68c8-40a4-b37e-b5300368b33b",
+                "args": {
+                  "b": 50,
+                  "a": 200
+                },
+                "name": "divide"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1748270977.339339
+        },
+        {
+          "invocation_id": "e-52c01ee1-d42e-46e2-bd09-af34ebda5c66",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "Frank has 5 cats and each cat has 2 ears, how many ears are there in total (including Frank)?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The cats have 5 * 2 = 10 ears.\nIncluding Frank, there are 10 + 2 = 12 ears in total.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-d936a996-8442-4ccf-9087-41aa1ea4d1cb",
+                "args": {
+                  "a": 5,
+                  "b": 2
+                },
+                "name": "multiply"
+              },
+              {
+                "id": "adk-edee7462-f533-4767-8070-71f62f2df15a",
+                "args": {
+                  "a": 10,
+                  "b": 2
+                },
+                "name": "add"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1748271006.845885
+        }
+      ],
+      "session_input": {
+        "app_name": "math_agent_w_fastmcp",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1748271031.608321
+    }
+  ],
+  "creation_timestamp": 1748271027.3977852
+}

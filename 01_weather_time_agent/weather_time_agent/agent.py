@@ -1,7 +1,7 @@
 """This module defines agents for weather and time inquiries."""
 import logging
 import sys
-from google.adk.agents import Agent
+from google.adk.agents.llm_agent import LlmAgent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types  # this is needed for GenerateContentConfig
@@ -28,7 +28,7 @@ USER_ID = "user_1234"
 # agents
 #-----------------
 # Agent specifically for handling weather-related queries.
-weather_agent = Agent(
+weather_agent = LlmAgent(
     name="weather_agent",
     model=model,
     description=(
@@ -44,7 +44,7 @@ weather_agent = Agent(
 )
 
 # Agent specifically for handling time-related queries.
-time_agent = Agent(
+time_agent = LlmAgent(
     name="time_agent",
     model=model,
     generate_content_config=types.GenerateContentConfig(
@@ -67,7 +67,7 @@ time_agent = Agent(
 )
 
 # Root agent that directs queries to the appropriate sub-agent (weather or time).
-root_agent = Agent(
+root_agent = LlmAgent(
     name="root_agent",
     model=model,
     description=(
