@@ -45,10 +45,9 @@ Notice how it was about to correct me on the misspelling of "Cyprus" and ask for
 ## Testing
 The following testing commands are executed from the `01_weather_time_agent` directory.
 
-### pytest
-- [documentation](https://google.github.io/adk-docs/evaluate/#2-pytest-run-tests-programmatically)
+### pytest (unit tests)
 ```sh
-PYTHONTRACEMALLOC=1 pytest -v eval
+pytest -v tests
 ```
 
 ### adk eval

@@ -3,7 +3,7 @@
 **/.pytest_cache
 **/.env
 
-# where "adk eval" results are stored
+# adk stuff
 **/.adk
 
 # misc

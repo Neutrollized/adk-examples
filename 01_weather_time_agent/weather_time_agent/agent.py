@@ -20,6 +20,9 @@ from .tools.tools import (
 logger=logging.getLogger(__name__)
 model="gemini-2.0-flash"
 
+APP_NAME = "weather_time_app"
+USER_ID = "user_1234"
+
 
 #-----------------
 # agents
@@ -77,16 +80,10 @@ root_agent = Agent(
 )
 
 
-
-#------------
-# session
-#------------
-APP_NAME = "weather_time_app"
-USER_ID = "user_1234"
-SESSION_ID = "session1234"
-
-# Session and Runner
+#--------------------
+# session & runner
+#--------------------
 session_service = InMemorySessionService()
-#session = session_service.create_session(app_name=APP_NAME, user_id=USER_ID, session_id=SESSION_ID)
-session = session_service.create_session(app_name=APP_NAME, user_id=USER_ID)
+session = session_service.create_session(app_name=APP_NAME, user_id=USER_ID)    # session_id will be auto-generated of none specified
+
 runner = Runner(agent=root_agent, app_name=APP_NAME, session_service=session_service)
