@@ -42,7 +42,7 @@ user: exit
 Notice how it was about to correct me on the misspelling of "Cyprus" and ask for validation.
 
 
-## Testing
+## Agent Evaluation
 The following testing commands are executed from the `01_weather_time_agent` directory.
 
 ### pytest (unit tests)
