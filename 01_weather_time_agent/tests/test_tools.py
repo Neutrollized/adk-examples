@@ -3,6 +3,7 @@ from weather_time_agent.tools.tools import (
     get_timezone,
     find_current_weather,
     find_current_time_in_tz,
+    convert_c2f,
 )
 import logging
 
@@ -39,4 +40,15 @@ def test_get_timezone():
 def test_find_current_time_in_tz():
     timezone_name = "America/Toronto"
     result = find_current_time_in_tz(timezone_name)
+
+def test_find_current_time_in_tz():
+    timezone_name = "America/Toronto"
+    result = find_current_time_in_tz(timezone_name)
     assert isinstance(result, str)  # only strings can be ISO formatted date/times
+    assert isinstance(result, str)  # only strings can be ISO formatted date/times
+
+def test_convert_c2f():
+    c_temp = 0
+    result = convert_c2f(c_temp)
+    assert isinstance(result, float)
+    assert result == 32.0
