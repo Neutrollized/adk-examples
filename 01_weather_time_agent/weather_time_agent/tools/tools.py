@@ -109,3 +109,15 @@ def find_current_time_in_tz(timezone_name: str) -> str:
     except pytz.exceptions.UnknownTimeZoneError:
         print(f"Error: Timezone '{timezone_name}' is not recognized.")
         return None
+
+
+def convert_c2f(c_temp: float) -> float:
+    """Convert Celsius to Fahrenheit
+    Args:
+        c_temp: A float representing the temp in Celsius
+
+    Returns:
+        float: Temperature in Fahrenheit
+    """
+    f_temp = (c_temp * 9/5) + 32
+    return f_temp

@@ -4,6 +4,10 @@ import sys
 from google.adk.agents.llm_agent import LlmAgent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
+from google.adk.tools import FunctionTool
+from google.adk.tools.tool_context import ToolContext
+from google.adk.tools.base_tool import BaseTool
+from typing import Optional, Dict, Any
 from google.genai import types  # this is needed for GenerateContentConfig
 
 from .tools.tools import (
@@ -11,17 +15,55 @@ from .tools.tools import (
     get_timezone,
     find_current_weather,
     find_current_time_in_tz,
+    convert_c2f,
 )
+
+# https://google.github.io/adk-docs/tools/#tool-types-in-adk
+geocoding_tool = FunctionTool(func=get_geocoding)
+timezone_tool = FunctionTool(func=get_timezone)
+current_weather_tool = FunctionTool(func=find_current_weather)
+current_time_tool = FunctionTool(func=find_current_time_in_tz)
+celsius2fahrenheit_tool = FunctionTool(func=convert_c2f)
 
 
 #-------------------
 # settings
 #-------------------
+country_abbrev_dict = {
+    # keys should be all uppercase here
+    "USA": "United States",
+    "UK": "United Kingdom",
+    "GB": "United Kingdom",
+    "UAE": "United Arab Emirates",
+    "DRC": "DR Congo",
+    "CAR": "Central African Republic"
+}
+
 logger=logging.getLogger(__name__)
 model="gemini-2.0-flash"
 
 APP_NAME = "weather_time_app"
 USER_ID = "user_1234"
+
+
+#-------------------
+# callbacks
+#-------------------
+def country_name_before_tool_modifier(tool: BaseTool, args: Dict[str, Any], tool_context: ToolContext) -> Optional[Dict]:
+    """Inspects/modifies tool args or skips the tool call."""
+    agent_name = tool_context.agent_name
+    tool_name = tool.name
+    print(f"[Callback] Before tool call for tool '{tool_name}' in agent '{agent_name}'")
+    print(f"[Callback] Original args: {args}")
+
+    # need to provide the Python function name here not the wrapped FunctionTool name...
+    if tool_name == 'get_geocoding' and args.get('country', '').upper() in country_abbrev_dict:
+        print(f"[Callback] Detected {args.get('country', '').upper()}. Modifying arg to {country_abbrev_dict[args.get('country', '').upper()]}.")
+        args['country'] = country_abbrev_dict[args.get('country', '').upper()]
+        print(f"[Callback] Modified args: {args}")
+        return None
+
+    return None
 
 
 #-----------------
@@ -38,9 +80,11 @@ weather_agent = LlmAgent(
         "You are a helpful agent who can answer user questions about the weather in a city and country."
     ),
     tools=[
-        get_geocoding,
-        find_current_weather
+        geocoding_tool,
+        current_weather_tool,
+        convert_c2f
     ],
+    before_tool_callback=country_name_before_tool_modifier
 )
 
 # Agent specifically for handling time-related queries.
@@ -60,10 +104,11 @@ time_agent = LlmAgent(
         "You are a helpful pirate who can answer user questions about the date and time of a city. Don't give the response in ISO format.  Give the date and time."
     ),
     tools=[
-        get_geocoding,
-        get_timezone,
-        find_current_time_in_tz
+        geocoding_tool,
+        timezone_tool,
+        current_time_tool
     ],
+    before_tool_callback=country_name_before_tool_modifier
 )
 
 # Root agent that directs queries to the appropriate sub-agent (weather or time).
