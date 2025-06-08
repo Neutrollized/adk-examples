@@ -4,19 +4,20 @@
   "description": null,
   "eval_cases": [
     {
-      "eval_id": "case7cfcd8",
+      "eval_id": "casec574f5",
       "conversation": [
         {
-          "invocation_id": "e-47e6a37e-3e54-4421-98c0-17d4f5d248d6",
+          "invocation_id": "e-7ca75d1c-c1e7-4205-9b69-576edb6a8aa6",
           "user_content": {
             "parts": [
               {
                 "video_metadata": null,
                 "thought": null,
                 "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
                 "code_execution_result": null,
                 "executable_code": null,
-                "file_data": null,
                 "function_call": null,
                 "function_response": null,
                 "text": "hi"
@@ -30,12 +31,13 @@
                 "video_metadata": null,
                 "thought": null,
                 "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
                 "code_execution_result": null,
                 "executable_code": null,
-                "file_data": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "Hi there! How can I help you today?\n"
+                "text": "Hi, how can I help you today?\n"
               }
             ],
             "role": null
@@ -44,19 +46,20 @@
             "tool_uses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1748129752.425904
+          "creation_timestamp": 1749340766.265047
         },
         {
-          "invocation_id": "e-80c5634f-41af-498d-b6a8-6b75d7109584",
+          "invocation_id": "e-e2abeadb-3f67-48a8-8dea-82289118dfb5",
           "user_content": {
             "parts": [
               {
                 "video_metadata": null,
                 "thought": null,
                 "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
                 "code_execution_result": null,
                 "executable_code": null,
-                "file_data": null,
                 "function_call": null,
                 "function_response": null,
                 "text": "what can you do?"
@@ -70,12 +73,13 @@
                 "video_metadata": null,
                 "thought": null,
                 "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
                 "code_execution_result": null,
                 "executable_code": null,
-                "file_data": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "I can answer questions about the current date/time and weather in any city. If you ask me a question about those topics, I will do my best to answer.\n"
+                "text": "I can answer questions about the current date/time and weather in any city.\n"
               }
             ],
             "role": null
@@ -84,22 +88,23 @@
             "tool_uses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1748129769.81857
+          "creation_timestamp": 1749340770.225706
         },
         {
-          "invocation_id": "e-52ba841f-e89d-415f-a5a7-ff0fed715cf3",
+          "invocation_id": "e-54cb8c14-69a7-4298-9b88-e6c86bdbda41",
           "user_content": {
             "parts": [
               {
                 "video_metadata": null,
                 "thought": null,
                 "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
                 "code_execution_result": null,
                 "executable_code": null,
-                "file_data": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "what's the weather like in pune, india?"
+                "text": "what's the weather in abu dhabi, uae?"
               }
             ],
             "role": "user"
@@ -110,12 +115,13 @@
                 "video_metadata": null,
                 "thought": null,
                 "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
                 "code_execution_result": null,
                 "executable_code": null,
-                "file_data": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "The weather in Pune, India is 23.1 degrees Celsius.\n"
+                "text": "The weather in Abu Dhabi, UAE is 28.5 degrees Celsius.\n"
               }
             ],
             "role": null
@@ -123,47 +129,48 @@
           "intermediate_data": {
             "tool_uses": [
               {
-                "id": "adk-e2373e01-c4fa-4aef-8b48-92751c2de55a",
+                "id": "adk-450f80ae-942b-4b41-bd87-66976733bbdf",
                 "args": {
                   "agent_name": "weather_agent"
                 },
                 "name": "transfer_to_agent"
               },
               {
-                "id": "adk-cef818b2-215d-4eb5-8444-7806821d9d96",
+                "id": "adk-be5dd3b2-60ff-4d17-8ba9-3aaf9fcb377f",
                 "args": {
-                  "city": "pune",
-                  "country": "india"
+                  "city": "abu dhabi",
+                  "country": "United Arab Emirates"
                 },
                 "name": "get_geocoding"
               },
               {
-                "id": "adk-dc191005-96cf-4d36-9f13-ea36ec0bd4a3",
+                "id": "adk-b0c37ef4-8aae-49eb-8259-b95478f94913",
                 "args": {
-                  "longitude": 73.85535,
-                  "latitude": 18.51957
+                  "longitude": 54.39696,
+                  "latitude": 24.45118
                 },
                 "name": "find_current_weather"
               }
             ],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1748129822.607002
+          "creation_timestamp": 1749340781.716688
         },
         {
-          "invocation_id": "e-51b3a137-9239-4503-857a-2ed88d811ec8",
+          "invocation_id": "e-aedd0697-1d84-4564-b028-cec942810f82",
           "user_content": {
             "parts": [
               {
                 "video_metadata": null,
                 "thought": null,
                 "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
                 "code_execution_result": null,
                 "executable_code": null,
-                "file_data": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "what about in sydney, australia?"
+                "text": "what's the time there?"
               }
             ],
             "role": "user"
@@ -174,12 +181,13 @@
                 "video_metadata": null,
                 "thought": null,
                 "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
                 "code_execution_result": null,
                 "executable_code": null,
-                "file_data": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "The weather in Sydney, Australia is 15.1 degrees Celsius.\n"
+                "text": "Arrr, matey! The date and time in Abu Dhabi be June 8, and the hour be 4:00 AM.\n"
               }
             ],
             "role": null
@@ -187,113 +195,112 @@
           "intermediate_data": {
             "tool_uses": [
               {
-                "id": "adk-be48bf86-3fac-4f16-a6b0-81428ac5f7c8",
-                "args": {
-                  "country": "australia",
-                  "city": "sydney"
-                },
-                "name": "get_geocoding"
-              },
-              {
-                "id": "adk-6905da5e-9474-4346-b5ef-58bbefd00871",
-                "args": {
-                  "longitude": 151.20732,
-                  "latitude": -33.86785
-                },
-                "name": "find_current_weather"
-              }
-            ],
-            "intermediate_responses": []
-          },
-          "creation_timestamp": 1748129942.627008
-        },
-        {
-          "invocation_id": "e-755f7068-6348-468b-afa8-2c45cf1031f9",
-          "user_content": {
-            "parts": [
-              {
-                "video_metadata": null,
-                "thought": null,
-                "inline_data": null,
-                "code_execution_result": null,
-                "executable_code": null,
-                "file_data": null,
-                "function_call": null,
-                "function_response": null,
-                "text": "what about the time there?"
-              }
-            ],
-            "role": "user"
-          },
-          "final_response": {
-            "parts": [
-              {
-                "video_metadata": null,
-                "thought": null,
-                "inline_data": null,
-                "code_execution_result": null,
-                "executable_code": null,
-                "file_data": null,
-                "function_call": null,
-                "function_response": null,
-                "text": "The time in Sydney, Australia be 9:40 AM on May 25, 2025.\n"
-              }
-            ],
-            "role": null
-          },
-          "intermediate_data": {
-            "tool_uses": [
-              {
-                "id": "adk-a9549941-68a0-4bea-9d51-7405603a8b7f",
+                "id": "adk-d549f55e-09ca-48f1-adec-d8952ea0c693",
                 "args": {
                   "agent_name": "time_agent"
                 },
                 "name": "transfer_to_agent"
               },
               {
-                "id": "adk-7a0e5de6-5a62-4993-adbb-7cce0b32e135",
+                "id": "adk-ea2fb1c7-4521-4da3-9790-f41e3ce7e86f",
                 "args": {
-                  "country": "Australia",
-                  "city": "Sydney"
+                  "city": "Abu Dhabi",
+                  "country": "United Arab Emirates"
                 },
                 "name": "get_geocoding"
               },
               {
-                "id": "adk-3b253e6c-0b9a-4eed-af5e-2ad179961242",
+                "id": "adk-d0de99b7-b095-452d-b1b8-d71f51320b32",
                 "args": {
-                  "longitude": 151.20732,
-                  "latitude": -33.86785
+                  "latitude": 24.45118,
+                  "longitude": 54.39696
                 },
                 "name": "get_timezone"
               },
               {
-                "id": "adk-364e6763-08cb-48ea-aac3-48d8bca92e00",
+                "id": "adk-abe84270-eedd-4012-ac0f-06c3379f5c77",
                 "args": {
-                  "timezone_name": "Australia/Sydney"
+                  "timezone_name": "Asia/Dubai"
                 },
                 "name": "find_current_time_in_tz"
               }
             ],
-            "intermediate_responses": [
-              [
-                "time_agent",
-                [
-                  {
-                    "video_metadata": null,
-                    "thought": null,
-                    "inline_data": null,
-                    "code_execution_result": null,
-                    "executable_code": null,
-                    "file_data": null,
-                    "function_call": null,
-                    "function_response": null,
-                    "text": "Ahoy matey! The time in Sydney, Australia be 8:05 AM on May 25, 2025.\n"
-                  }
-                ]
-              ]
-            ]
+            "intermediate_responses": []
           },
-          "creation_timestamp": 1748130009.933007
+          "creation_timestamp": 1749340823.913913
+        },
+        {
+          "invocation_id": "e-7658c08d-791e-4dbe-8a8b-5d7e3bc1d946",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "can you tell me the weather in london, uk in fahrenheit?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The weather in London, UK is 53.78 degrees Fahrenheit.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-ee20fbae-2092-41be-a4b8-10d312051f1e",
+                "args": {
+                  "agent_name": "weather_agent"
+                },
+                "name": "transfer_to_agent"
+              },
+              {
+                "id": "adk-1e44d361-0e4f-4dc9-b0fd-2bd4708532ef",
+                "args": {
+                  "city": "london",
+                  "country": "United Kingdom"
+                },
+                "name": "get_geocoding"
+              },
+              {
+                "id": "adk-75045be2-1496-4ef4-807c-a6f4977761ae",
+                "args": {
+                  "longitude": -0.12574,
+                  "latitude": 51.50853
+                },
+                "name": "find_current_weather"
+              },
+              {
+                "id": "adk-27d81252-9c7d-4774-831f-2fae240d6a11",
+                "args": {
+                  "c_temp": 12.1
+                },
+                "name": "convert_c2f"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1749340855.915009
         }
       ],
       "session_input": {
@@ -301,8 +308,8 @@
         "user_id": "user",
         "state": {}
       },
-      "creation_timestamp": 1748130059.713364
+      "creation_timestamp": 1749341054.1280131
     }
   ],
-  "creation_timestamp": 1748130038.528727
+  "creation_timestamp": 1749341047.398758
 }
