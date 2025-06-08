@@ -5,10 +5,14 @@ from google.adk.agents.llm_agent import LlmAgent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.adk.tools import FunctionTool
+from google.genai import types  # this is needed for GenerateContentConfig
+
+# used by callbacks
+from google.adk.agents.callback_context import CallbackContext
+from google.adk.models import LlmResponse, LlmRequest
 from google.adk.tools.tool_context import ToolContext
 from google.adk.tools.base_tool import BaseTool
 from typing import Optional, Dict, Any
-from google.genai import types  # this is needed for GenerateContentConfig
 
 from .tools.tools import (
     get_geocoding,
@@ -29,7 +33,12 @@ celsius2fahrenheit_tool = FunctionTool(func=convert_c2f)
 #-------------------
 # settings
 #-------------------
-country_abbrev_dict = {
+logger=logging.getLogger(__name__)
+model="gemini-2.0-flash"
+
+PROFANITY_LIST=["dangit", "fudge", "bing"]
+
+COUNTRY_ABBREV_DICT = {
     # keys should be all uppercase here
     "USA": "United States",
     "UK": "United Kingdom",
@@ -39,9 +48,6 @@ country_abbrev_dict = {
     "CAR": "Central African Republic"
 }
 
-logger=logging.getLogger(__name__)
-model="gemini-2.0-flash"
-
 APP_NAME = "weather_time_app"
 USER_ID = "user_1234"
 
@@ -49,6 +55,33 @@ USER_ID = "user_1234"
 #-------------------
 # callbacks
 #-------------------
+def query_before_model_profanity_filter(callback_context: CallbackContext, llm_request: LlmRequest) -> Optional[LlmResponse]:
+    """Inspects/modifies the LLM request or skips the call."""
+    agent_name = callback_context.agent_name
+    print(f"[Callback] Before model call for agent: {agent_name}")
+
+    # Inspect the last user message in the request contents
+    last_user_message = ""
+    if llm_request.contents and llm_request.contents[-1].role == 'user':
+         if llm_request.contents[-1].parts:
+            last_user_message = llm_request.contents[-1].parts[0].text
+    print(f"[Callback] Inspecting last user message: '{last_user_message}'")
+
+    for bad_word in PROFANITY_LIST:
+        if bad_word.upper() in str(last_user_message).upper():
+            print("[Callback] Profanity detected. Skipping LLM call.")
+            # Return an LlmResponse to skip the actual LLM call
+            return LlmResponse(
+                content=types.Content(
+                    role="model",
+                    parts=[types.Part(text="You kiss your mother with that mouth? LLM call was blocked by before_model_callback.")],
+                )
+            )
+
+    print("[Callback] Query was clean. Proceeding with LLM call.")
+    return None
+
+
 def country_name_before_tool_modifier(tool: BaseTool, args: Dict[str, Any], tool_context: ToolContext) -> Optional[Dict]:
     """Inspects/modifies tool args or skips the tool call."""
     agent_name = tool_context.agent_name
@@ -57,9 +90,9 @@ def country_name_before_tool_modifier(tool: BaseTool, args: Dict[str, Any], tool
     print(f"[Callback] Original args: {args}")
 
     # need to provide the Python function name here not the wrapped FunctionTool name...
-    if tool_name == 'get_geocoding' and args.get('country', '').upper() in country_abbrev_dict:
-        print(f"[Callback] Detected {args.get('country', '').upper()}. Modifying arg to {country_abbrev_dict[args.get('country', '').upper()]}.")
-        args['country'] = country_abbrev_dict[args.get('country', '').upper()]
+    if tool_name == 'get_geocoding' and args.get('country', '').upper() in COUNTRY_ABBREV_DICT:
+        print(f"[Callback] Detected {args.get('country', '').upper()}. Modifying arg to {COUNTRY_ABBREV_DICT[args.get('country', '').upper()]}.")
+        args['country'] = COUNTRY_ABBREV_DICT[args.get('country', '').upper()]
         print(f"[Callback] Modified args: {args}")
         return None
 
@@ -84,6 +117,7 @@ weather_agent = LlmAgent(
         current_weather_tool,
         celsius2fahrenheit_tool
     ],
+    before_model_callback=query_before_model_profanity_filter,
     before_tool_callback=country_name_before_tool_modifier
 )
 
@@ -108,6 +142,7 @@ time_agent = LlmAgent(
         timezone_tool,
         current_time_tool
     ],
+    before_model_callback=query_before_model_profanity_filter,
     before_tool_callback=country_name_before_tool_modifier
 )
 
@@ -122,6 +157,7 @@ root_agent = LlmAgent(
         weather_agent,
         time_agent
     ],
+    before_model_callback=query_before_model_profanity_filter
 )
 
 
