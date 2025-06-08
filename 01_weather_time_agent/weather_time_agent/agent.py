@@ -82,7 +82,7 @@ weather_agent = LlmAgent(
     tools=[
         geocoding_tool,
         current_weather_tool,
-        convert_c2f
+        celsius2fahrenheit_tool
     ],
     before_tool_callback=country_name_before_tool_modifier
 )
