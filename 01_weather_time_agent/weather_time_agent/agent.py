@@ -50,6 +50,7 @@ COUNTRY_ABBREV_DICT = {
 
 APP_NAME = "weather_time_app"
 USER_ID = "user_1234"
+SESSION_ID = "session_1234"
 
 
 #-------------------
@@ -71,12 +72,15 @@ def query_before_model_profanity_filter(callback_context: CallbackContext, llm_r
         if bad_word.upper() in str(last_user_message).upper():
             print("[Callback] Profanity detected. Skipping LLM call.")
             # Return an LlmResponse to skip the actual LLM call
+            # LlmResponse is interpretted as the actual LLM response
             return LlmResponse(
                 content=types.Content(
                     role="model",
                     parts=[types.Part(text="You kiss your mother with that mouth? LLM call was blocked by before_model_callback.")],
                 )
             )
+
+    print(f"[Callback] User's language preference is {callback_context.state.get("language")}")
 
     print("[Callback] Query was clean. Proceeding with LLM call.")
     return None
@@ -115,10 +119,10 @@ weather_agent = LlmAgent(
     tools=[
         geocoding_tool,
         current_weather_tool,
-        celsius2fahrenheit_tool
+        celsius2fahrenheit_tool,
     ],
     before_model_callback=query_before_model_profanity_filter,
-    before_tool_callback=country_name_before_tool_modifier
+    before_tool_callback=country_name_before_tool_modifier,
 )
 
 # Agent specifically for handling time-related queries.
@@ -140,10 +144,10 @@ time_agent = LlmAgent(
     tools=[
         geocoding_tool,
         timezone_tool,
-        current_time_tool
+        current_time_tool,
     ],
     before_model_callback=query_before_model_profanity_filter,
-    before_tool_callback=country_name_before_tool_modifier
+    before_tool_callback=country_name_before_tool_modifier,
 )
 
 # Root agent that directs queries to the appropriate sub-agent (weather or time).
@@ -155,9 +159,9 @@ root_agent = LlmAgent(
     ),
     sub_agents=[
         weather_agent,
-        time_agent
+        time_agent,
     ],
-    before_model_callback=query_before_model_profanity_filter
+    before_model_callback=query_before_model_profanity_filter,
 )
 
 
@@ -165,6 +169,22 @@ root_agent = LlmAgent(
 # session & runner
 #--------------------
 session_service = InMemorySessionService()
-session = session_service.create_session(app_name=APP_NAME, user_id=USER_ID)    # session_id will be auto-generated of none specified
 
-runner = Runner(agent=root_agent, app_name=APP_NAME, session_service=session_service)
+initial_state = {
+    "language": "English",
+    "unit_system": "imperial"
+}
+
+# session_id will be auto-generated of none specified
+session = session_service.create_session(
+    app_name=APP_NAME,
+    user_id=USER_ID,
+    session_id=SESSION_ID,
+    state=initial_state,
+)
+
+runner = Runner(
+    agent=root_agent,
+    app_name=APP_NAME,
+    session_service=session_service,
+)
