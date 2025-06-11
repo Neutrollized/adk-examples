@@ -1,21 +1,23 @@
+import pytest
+import logging
+
 from weather_time_agent.tools.tools import (
-    get_geocoding,
+    get_geocoding_v2,
     get_timezone,
-    find_current_weather,
+    find_current_weather_v2,
     find_current_time_in_tz,
     convert_c2f,
 )
-import logging
 
 # Configure logging for the test file
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
-def test_get_geocoding():
+@pytest.mark.asyncio
+async def test_get_geocoding_v2():
     city = "Toronto"
     country = "Canada"
-    result = get_geocoding(city, country)
+    result = await get_geocoding_v2(city, country)
     assert isinstance(result, dict)
     assert result == {
         "latitude": 43.70643,
@@ -24,31 +26,30 @@ def test_get_geocoding():
 
 # I can only assert that the function returns a float
 # as the temperature is live/dynamic value
-def test_find_current_weather():
+@pytest.mark.asyncio
+async def test_find_current_weather_v2():
     latitude = 43.70643
     longitude = -79.39864
-    result = find_current_weather(latitude, longitude)
+    result = await find_current_weather_v2(latitude, longitude)
     assert isinstance(result, float)
 
-def test_get_timezone():
+@pytest.mark.asyncio
+async def test_get_timezone():
     latitude = 43.70643
     longitude = -79.39864
-    result = get_timezone(latitude, longitude)
+    result = await get_timezone(latitude, longitude)
     assert isinstance(result, str)
     assert result == "America/Toronto"
 
-def test_find_current_time_in_tz():
+@pytest.mark.asyncio
+async def test_find_current_time_in_tz():
     timezone_name = "America/Toronto"
-    result = find_current_time_in_tz(timezone_name)
-
-def test_find_current_time_in_tz():
-    timezone_name = "America/Toronto"
-    result = find_current_time_in_tz(timezone_name)
-    assert isinstance(result, str)  # only strings can be ISO formatted date/times
+    result = await find_current_time_in_tz(timezone_name)
     assert isinstance(result, str)  # only strings can be ISO formatted date/times
 
-def test_convert_c2f():
+@pytest.mark.asyncio
+async def test_convert_c2f():
     c_temp = 0
-    result = convert_c2f(c_temp)
+    result = await convert_c2f(c_temp)
     assert isinstance(result, float)
     assert result == 32.0

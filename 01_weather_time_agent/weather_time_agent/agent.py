@@ -15,17 +15,17 @@ from google.adk.tools.base_tool import BaseTool
 from typing import Optional, Dict, Any
 
 from .tools.tools import (
-    get_geocoding,
+    get_geocoding_v2,
     get_timezone,
-    find_current_weather,
+    find_current_weather_v2,
     find_current_time_in_tz,
     convert_c2f,
 )
 
 # https://google.github.io/adk-docs/tools/#tool-types-in-adk
-geocoding_tool = FunctionTool(func=get_geocoding)
+geocoding_tool = FunctionTool(func=get_geocoding_v2)
 timezone_tool = FunctionTool(func=get_timezone)
-current_weather_tool = FunctionTool(func=find_current_weather)
+current_weather_tool = FunctionTool(func=find_current_weather_v2)
 current_time_tool = FunctionTool(func=find_current_time_in_tz)
 celsius2fahrenheit_tool = FunctionTool(func=convert_c2f)
 
@@ -94,7 +94,7 @@ def country_name_before_tool_modifier(tool: BaseTool, args: Dict[str, Any], tool
     print(f"[Callback] Original args: {args}")
 
     # need to provide the Python function name here not the wrapped FunctionTool name...
-    if tool_name == 'get_geocoding' and args.get('country', '').upper() in COUNTRY_ABBREV_DICT:
+    if tool_name == 'get_geocoding_v2' and args.get('country', '').upper() in COUNTRY_ABBREV_DICT:
         print(f"[Callback] Detected {args.get('country', '').upper()}. Modifying arg to {COUNTRY_ABBREV_DICT[args.get('country', '').upper()]}.")
         args['country'] = COUNTRY_ABBREV_DICT[args.get('country', '').upper()]
         print(f"[Callback] Modified args: {args}")
