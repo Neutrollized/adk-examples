@@ -52,6 +52,7 @@ async def get_geocoding_v2(city: str, country: str) -> dict:
     Args:
         city: A string representing the name of the city.
         country: A string representing the name or country code of the country.
+        verify: A boolean indicating whether to verify SSL certificates. Defaults to True.
 
     Returns:
         dict: Latitude and longitude of the city, country.
@@ -61,7 +62,8 @@ async def get_geocoding_v2(city: str, country: str) -> dict:
     query_params = {"name": city}
 
     try:
-        async with httpx.AsyncClient() as client:
+        # https://github.com/encode/httpx/issues/1028#issuecomment-645964226
+        async with httpx.AsyncClient(verify=verify) as client:
             response = await client.get(url, params=query_params, timeout=10.0) # Added a timeout for robustness
             response.raise_for_status()  # Raise an exception for HTTP errors (4xx or 5xx)
     except httpx.TimeoutException as e:
@@ -101,7 +103,7 @@ async def find_current_weather(latitude: float, longitude: float) -> float:
         longitude: A float representing the longitude of a geographical location.
 
     Returns:
-        float: Current temperature in Celcius
+        float: Current temperature in Celsius
     """
     url = "https://api.open-meteo.com/v1/forecast"
 
@@ -118,14 +120,15 @@ async def find_current_weather(latitude: float, longitude: float) -> float:
 
     return json_data["current"]["temperature_2m"]
 
-async def find_current_weather_v2(latitude: float, longitude: float) -> float:
+async def find_current_weather_v2(latitude: float, longitude: float, verify: bool=True) -> float:
     """Find weather given geographical location
     Args:
         latitude: A float representing the latitude of a geographical location.
         longitude: A float representing the longitude of a geographical location.
+        verify: A boolean indicating whether to verify SSL certificates. Defaults to True.
 
     Returns:
-        float: Current temperature in Celcius, or None if an error occurs.
+        float: Current temperature in Celsius, or None if an error occurs.
     """
     url = "https://api.open-meteo.com/v1/forecast"
 
@@ -138,7 +141,8 @@ async def find_current_weather_v2(latitude: float, longitude: float) -> float:
     }
 
     try:
-        async with httpx.AsyncClient() as client:
+        # https://github.com/encode/httpx/issues/1028#issuecomment-645964226
+        async with httpx.AsyncClient(verify=verify) as client:
             response = await client.get(url, params=query_params, timeout=10.0) # Added a timeout for robustness
             response.raise_for_status()  # Raise an exception for HTTP errors (4xx or 5xx)
     except httpx.TimeoutException as e:
