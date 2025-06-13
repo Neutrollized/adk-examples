@@ -7,7 +7,7 @@ from google.adk.agents.llm_agent import LlmAgent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.adk.tools.tool_context import ToolContext
-from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, SseServerParams
+from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, SseServerParams, StreamableHTTPServerParams
 
 
 #-----------------
@@ -35,6 +35,9 @@ root_agent = LlmAgent(
         MCPToolset(
             connection_params=SseServerParams(
                 url=fastmcp_server_url + "/sse",
+            # config if using Streamable HTTP instead of SSE
+#            connection_params=StreamableHTTPServerParams(
+#                url=fastmcp_server_url + "/mcp",
             )
         )
     ],

@@ -3,7 +3,7 @@ import logging
 import sys
 from google.adk.agents.llm_agent import LlmAgent
 from google.adk.runners import Runner
-from google.adk.sessions import InMemorySessionService
+from google.adk.sessions import InMemorySessionService, Session
 from google.adk.tools import FunctionTool
 from google.genai import types  # this is needed for GenerateContentConfig
 
@@ -60,6 +60,7 @@ def query_before_model_profanity_filter(callback_context: CallbackContext, llm_r
     """Inspects/modifies the LLM request or skips the call."""
     agent_name = callback_context.agent_name
     print(f"[Callback] Before model call for agent: {agent_name}")
+    print(f"[Callback] Callback state: {callback_context.state.to_dict()}")
 
     # Inspect the last user message in the request contents
     last_user_message = ""
@@ -80,8 +81,6 @@ def query_before_model_profanity_filter(callback_context: CallbackContext, llm_r
                 )
             )
 
-    print(f"[Callback] User's language preference is {callback_context.state.get("language")}")
-
     print("[Callback] Query was clean. Proceeding with LLM call.")
     return None
 
@@ -92,6 +91,7 @@ def country_name_before_tool_modifier(tool: BaseTool, args: Dict[str, Any], tool
     tool_name = tool.name
     print(f"[Callback] Before tool call for tool '{tool_name}' in agent '{agent_name}'")
     print(f"[Callback] Original args: {args}")
+    print(f"[Callback] Tool context state: {tool_context.state.to_dict()}")
 
     # need to provide the Python function name here not the wrapped FunctionTool name...
     if tool_name == 'get_geocoding_v2' and args.get('country', '').upper() in COUNTRY_ABBREV_DICT:

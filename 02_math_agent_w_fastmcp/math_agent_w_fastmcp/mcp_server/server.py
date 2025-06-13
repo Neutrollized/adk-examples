@@ -1,7 +1,6 @@
 """This module defines a FastMCP server for basic arithmetic operations."""
 import os
 import asyncio
-
 from fastmcp import FastMCP
 
 
@@ -12,8 +11,8 @@ from fastmcp import FastMCP
 host=os.environ.get("FASTMCP_HOST", "0.0.0.0")
 # Port for the FastMCP server
 port=os.environ.get("FASTMCP_PORT", 8080)
-# Transport protocol for the FastMCP server (e.g., sse, streamable-http)
-transport=os.environ.get("FASTMCP_TRANSPORT", "sse")    # sse, streamable-http, etc.
+# Transport protocol for the FastMCP server (e.g., stdio, streamable-http, sse)
+transport=os.environ.get("FASTMCP_TRANSPORT", "streamable-http")
 
 
 #-------------

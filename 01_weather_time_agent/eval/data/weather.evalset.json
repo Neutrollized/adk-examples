@@ -4,10 +4,10 @@
   "description": null,
   "eval_cases": [
     {
-      "eval_id": "casec574f5",
+      "eval_id": "case82c8ff",
       "conversation": [
         {
-          "invocation_id": "e-7ca75d1c-c1e7-4205-9b69-576edb6a8aa6",
+          "invocation_id": "e-fb27e262-a8b1-45c4-b34e-96aa7cbef426",
           "user_content": {
             "parts": [
               {
@@ -46,10 +46,10 @@
             "tool_uses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749340766.265047
+          "creation_timestamp": 1749780363.050842
         },
         {
-          "invocation_id": "e-e2abeadb-3f67-48a8-8dea-82289118dfb5",
+          "invocation_id": "e-7232abfa-7242-4c07-ad50-7dfd6882d606",
           "user_content": {
             "parts": [
               {
@@ -79,7 +79,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "I can answer questions about the current date/time and weather in any city.\n"
+                "text": "I can answer questions about the current date/time and weather in any city. If you ask me a question that would be better answered by one of my specialized agents, I will transfer you to that agent.\n"
               }
             ],
             "role": null
@@ -88,10 +88,10 @@
             "tool_uses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749340770.225706
+          "creation_timestamp": 1749780368.698747
         },
         {
-          "invocation_id": "e-54cb8c14-69a7-4298-9b88-e6c86bdbda41",
+          "invocation_id": "e-5b61cfbb-f1cd-406a-a427-d4c3f8e4c3c3",
           "user_content": {
             "parts": [
               {
@@ -104,7 +104,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "what's the weather in abu dhabi, uae?"
+                "text": "what's the weather in chicago, usa in fahrenheit?"
               }
             ],
             "role": "user"
@@ -121,7 +121,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "The weather in Abu Dhabi, UAE is 28.5 degrees Celsius.\n"
+                "text": "The current weather in Chicago, USA is 64.04 degrees Fahrenheit.\n"
               }
             ],
             "role": null
@@ -129,35 +129,101 @@
           "intermediate_data": {
             "tool_uses": [
               {
-                "id": "adk-450f80ae-942b-4b41-bd87-66976733bbdf",
+                "id": "adk-1bba337f-3a85-449d-a1f3-636c33838dd8",
                 "args": {
                   "agent_name": "weather_agent"
                 },
                 "name": "transfer_to_agent"
               },
               {
-                "id": "adk-be5dd3b2-60ff-4d17-8ba9-3aaf9fcb377f",
+                "id": "adk-d3d8e1a7-ca8d-48b9-a3b4-13a48ac8cf3d",
                 "args": {
-                  "city": "abu dhabi",
-                  "country": "United Arab Emirates"
+                  "country": "United States",
+                  "city": "chicago"
                 },
-                "name": "get_geocoding"
+                "name": "get_geocoding_v2"
               },
               {
-                "id": "adk-b0c37ef4-8aae-49eb-8259-b95478f94913",
+                "id": "adk-8a9face2-c436-4266-8156-d06f715f8320",
                 "args": {
-                  "longitude": 54.39696,
-                  "latitude": 24.45118
+                  "longitude": -87.65005,
+                  "latitude": 41.85003
                 },
-                "name": "find_current_weather"
+                "name": "find_current_weather_v2"
+              },
+              {
+                "id": "adk-02150f8f-a451-4dcf-909e-62c763cf1991",
+                "args": {
+                  "c_temp": 17.8
+                },
+                "name": "convert_c2f"
               }
             ],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749340781.716688
+          "creation_timestamp": 1749780389.083996
         },
         {
-          "invocation_id": "e-aedd0697-1d84-4564-b028-cec942810f82",
+          "invocation_id": "e-c1ad3cfb-80fc-43e2-b625-e50918ddc96c",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what's the weather in toronto, ontario?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The current weather in Toronto, Ontario is 16.5 degrees Celsius.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-9ea26a1d-3966-4198-ae15-b9039462d3c4",
+                "args": {
+                  "city": "toronto",
+                  "country": "Canada"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-3e11290b-0323-4849-8bef-cac8f843ce7d",
+                "args": {
+                  "latitude": 43.70643,
+                  "longitude": -79.39864
+                },
+                "name": "find_current_weather_v2"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1749780410.615127
+        },
+        {
+          "invocation_id": "e-72309650-e407-4a92-a36d-a566145d597f",
           "user_content": {
             "parts": [
               {
@@ -187,7 +253,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "Arrr, matey! The date and time in Abu Dhabi be June 8, and the hour be 4:00 AM.\n"
+                "text": "In Toronto, Ontario, it is June 12, 2025 at 10:07 PM.\n"
               }
             ],
             "role": null
@@ -195,42 +261,42 @@
           "intermediate_data": {
             "tool_uses": [
               {
-                "id": "adk-d549f55e-09ca-48f1-adec-d8952ea0c693",
+                "id": "adk-24827dd4-4092-4aea-8fc1-97d68bafe5a4",
                 "args": {
                   "agent_name": "time_agent"
                 },
                 "name": "transfer_to_agent"
               },
               {
-                "id": "adk-ea2fb1c7-4521-4da3-9790-f41e3ce7e86f",
+                "id": "adk-c7ad93b4-b15a-433e-aac8-e2101d51a1b4",
                 "args": {
-                  "city": "Abu Dhabi",
-                  "country": "United Arab Emirates"
+                  "country": "Canada",
+                  "city": "Toronto"
                 },
-                "name": "get_geocoding"
+                "name": "get_geocoding_v2"
               },
               {
-                "id": "adk-d0de99b7-b095-452d-b1b8-d71f51320b32",
+                "id": "adk-9abf72a4-df89-4415-8bf5-80c7e1c6df9b",
                 "args": {
-                  "latitude": 24.45118,
-                  "longitude": 54.39696
+                  "latitude": 43.70643,
+                  "longitude": -79.39864
                 },
                 "name": "get_timezone"
               },
               {
-                "id": "adk-abe84270-eedd-4012-ac0f-06c3379f5c77",
+                "id": "adk-3953bc9f-842a-4e55-bb30-e5358325671a",
                 "args": {
-                  "timezone_name": "Asia/Dubai"
+                  "timezone_name": "America/Toronto"
                 },
                 "name": "find_current_time_in_tz"
               }
             ],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749340823.913913
+          "creation_timestamp": 1749780424.116342
         },
         {
-          "invocation_id": "e-7658c08d-791e-4dbe-8a8b-5d7e3bc1d946",
+          "invocation_id": "e-564fca01-3e41-420d-9751-f3b6749a0c23",
           "user_content": {
             "parts": [
               {
@@ -243,7 +309,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "can you tell me the weather in london, uk in fahrenheit?"
+                "text": "what's the time in abu dhabi, uae?"
               }
             ],
             "role": "user"
@@ -260,7 +326,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "The weather in London, UK is 53.78 degrees Fahrenheit.\n"
+                "text": "In Abu Dhabi, UAE, it is June 13, 2025 at 6:07 AM.\n"
               }
             ],
             "role": null
@@ -268,39 +334,140 @@
           "intermediate_data": {
             "tool_uses": [
               {
-                "id": "adk-ee20fbae-2092-41be-a4b8-10d312051f1e",
+                "id": "adk-4f37b7e1-6743-4e62-b07d-c0186a4bcb61",
+                "args": {
+                  "country": "United Arab Emirates",
+                  "city": "Abu Dhabi"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-a13378e2-fd27-4878-ae09-e4625988ac99",
+                "args": {
+                  "latitude": 24.45118,
+                  "longitude": 54.39696
+                },
+                "name": "get_timezone"
+              },
+              {
+                "id": "adk-dc3e0193-91eb-4cff-a971-4deeecbe8b6f",
+                "args": {
+                  "timezone_name": "Asia/Dubai"
+                },
+                "name": "find_current_time_in_tz"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1749780443.515602
+        },
+        {
+          "invocation_id": "e-72ad1ede-7f30-4c07-badb-be34860258c2",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what's the weather there?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The current weather in Abu Dhabi, UAE is 31.5 degrees Celsius.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-4606e3af-269f-48f4-9dd1-6309cdf80392",
                 "args": {
                   "agent_name": "weather_agent"
                 },
                 "name": "transfer_to_agent"
               },
               {
-                "id": "adk-1e44d361-0e4f-4dc9-b0fd-2bd4708532ef",
+                "id": "adk-76ba9c55-7836-4f8f-97ee-6d221d370c62",
                 "args": {
-                  "city": "london",
-                  "country": "United Kingdom"
+                  "country": "United Arab Emirates",
+                  "city": "Abu Dhabi"
                 },
-                "name": "get_geocoding"
+                "name": "get_geocoding_v2"
               },
               {
-                "id": "adk-75045be2-1496-4ef4-807c-a6f4977761ae",
+                "id": "adk-e21f9290-557b-4150-a86d-81bf3a2e3dd3",
                 "args": {
-                  "longitude": -0.12574,
-                  "latitude": 51.50853
+                  "latitude": 24.45118,
+                  "longitude": 54.39696
                 },
-                "name": "find_current_weather"
-              },
-              {
-                "id": "adk-27d81252-9c7d-4774-831f-2fae240d6a11",
-                "args": {
-                  "c_temp": 12.1
-                },
-                "name": "convert_c2f"
+                "name": "find_current_weather_v2"
               }
             ],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749340855.915009
+          "creation_timestamp": 1749780461.298115
+        },
+        {
+          "invocation_id": "e-c5c408a8-ba91-411f-b86c-50a9d98d51ce",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "thanks"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "You're welcome!\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1749780474.386038
         }
       ],
       "session_input": {
@@ -308,8 +475,8 @@
         "user_id": "user",
         "state": {}
       },
-      "creation_timestamp": 1749341054.1280131
+      "creation_timestamp": 1749780489.2454798
     }
   ],
-  "creation_timestamp": 1749341047.398758
+  "creation_timestamp": 1749780484.452825
 }

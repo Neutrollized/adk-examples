@@ -1,0 +1,4 @@
+# mcp
+fastmcp == 2.8.0
+mcp == 1.9.4
+asyncio == 3.4.3

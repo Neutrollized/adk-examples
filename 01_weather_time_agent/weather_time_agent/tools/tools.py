@@ -87,6 +87,9 @@ async def get_geocoding_v2(city: str, country: str) -> dict:
             for entry in json_data["results"]:
                 if "country" in entry and entry["country"].lower() == country.lower():
                     return {"latitude": entry["latitude"], "longitude": entry["longitude"]}
+                # "admin1" is usually the province/state/larger area that the city is in
+                elif entry["admin1"].lower() == country.lower():
+                    return {"latitude": entry["latitude"], "longitude": entry["longitude"]}
         return None  # If "results" key is missing or no matching country is found
     except KeyError as e:
         print(f"KeyError in parsing response: {e}")
