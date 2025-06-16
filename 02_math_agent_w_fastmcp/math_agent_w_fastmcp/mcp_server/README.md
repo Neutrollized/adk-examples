@@ -68,7 +68,7 @@ gcloud beta run deploy fastmcp-math-server \
   --memory 128Mi \
   --cpu-boost \
   --image {REGION}-docker.pkg.dev/{PROJECT_ID}/{REPO_NAME}/fastmcp-math-server:v1.0.0-sse \
-  --region us-central1 \
+  --region {REGION} \
   --min-instances 0 \
   --max-instances 1 \
   --platform managed \
