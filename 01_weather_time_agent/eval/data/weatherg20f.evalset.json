@@ -1,6 +1,6 @@
 {
-  "eval_set_id": "weathertime",
-  "name": "weathertime",
+  "eval_set_id": "weather",
+  "name": "weather",
   "description": null,
   "eval_cases": [
     {
