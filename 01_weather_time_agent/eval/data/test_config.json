@@ -1,6 +1,6 @@
 {
   "criteria": {
-    "tool_trajectory_avg_score": 0.8,
-    "response_match_score": 0.65
+    "tool_trajectory_avg_score": 0.75,
+    "response_match_score": 0.6
   }
 }

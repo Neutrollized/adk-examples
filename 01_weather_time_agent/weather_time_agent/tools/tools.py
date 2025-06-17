@@ -222,3 +222,15 @@ async def convert_c2f(c_temp: float) -> float:
     """
     f_temp = (c_temp * 9/5) + 32
     return f_temp
+
+
+async def convert_f2c(f_temp: float) -> float:
+    """Convert Fahrenheit to Celsius
+    Args:
+        f_temp: A float representing the temp in Fahrenheit
+
+    Returns:
+        float: Temperature in Celsius
+    """
+    c_temp = (f_temp - 32) * (5/9)
+    return c_temp

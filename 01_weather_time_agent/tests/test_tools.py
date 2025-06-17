@@ -7,6 +7,7 @@ from weather_time_agent.tools.tools import (
     find_current_weather_v2,
     find_current_time_in_tz,
     convert_c2f,
+    convert_f2c,
 )
 
 # Configure logging for the test file
@@ -53,3 +54,10 @@ async def test_convert_c2f():
     result = await convert_c2f(c_temp)
     assert isinstance(result, float)
     assert result == 32.0
+
+@pytest.mark.asyncio
+async def test_convert_f2c():
+    f_temp = 68
+    result = await convert_f2c(f_temp)
+    assert isinstance(result, float)
+    assert result == 20.0

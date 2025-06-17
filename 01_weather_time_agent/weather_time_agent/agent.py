@@ -20,6 +20,7 @@ from .tools.tools import (
     find_current_weather_v2,
     find_current_time_in_tz,
     convert_c2f,
+    convert_f2c,
 )
 
 # https://google.github.io/adk-docs/tools/#tool-types-in-adk
@@ -28,13 +29,14 @@ timezone_tool = FunctionTool(func=get_timezone)
 current_weather_tool = FunctionTool(func=find_current_weather_v2)
 current_time_tool = FunctionTool(func=find_current_time_in_tz)
 celsius2fahrenheit_tool = FunctionTool(func=convert_c2f)
+fahrenheit2celsius_tool = FunctionTool(func=convert_f2c)
 
 
 #-------------------
 # settings
 #-------------------
 logger=logging.getLogger(__name__)
-model="gemini-2.0-flash"
+model="gemini-2.0-flash-lite"
 
 PROFANITY_LIST=["dangit", "fudge", "bing"]
 
@@ -120,6 +122,7 @@ weather_agent = LlmAgent(
         geocoding_tool,
         current_weather_tool,
         celsius2fahrenheit_tool,
+        fahrenheit2celsius_tool,
     ],
     before_model_callback=query_before_model_profanity_filter,
     before_tool_callback=country_name_before_tool_modifier,

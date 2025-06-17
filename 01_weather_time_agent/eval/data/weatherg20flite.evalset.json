@@ -4,10 +4,10 @@
   "description": null,
   "eval_cases": [
     {
-      "eval_id": "case82c8ff",
+      "eval_id": "cased0a41f",
       "conversation": [
         {
-          "invocation_id": "e-fb27e262-a8b1-45c4-b34e-96aa7cbef426",
+          "invocation_id": "e-36b4d7a2-edb9-4f5d-8589-1bdc22daf49f",
           "user_content": {
             "parts": [
               {
@@ -37,7 +37,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "Hi, how can I help you today?\n"
+                "text": "Hi! How can I help you today?\n"
               }
             ],
             "role": null
@@ -46,10 +46,10 @@
             "tool_uses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749780363.050842
+          "creation_timestamp": 1750202317.010582
         },
         {
-          "invocation_id": "e-7232abfa-7242-4c07-ad50-7dfd6882d606",
+          "invocation_id": "e-250ad51c-53c1-4e2d-a168-b6d8e6f59437",
           "user_content": {
             "parts": [
               {
@@ -79,7 +79,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "I can answer questions about the current date/time and weather in any city. If you ask me a question that would be better answered by one of my specialized agents, I will transfer you to that agent.\n"
+                "text": "I can help you answer questions about the current date/time and weather in any city.\n"
               }
             ],
             "role": null
@@ -88,10 +88,10 @@
             "tool_uses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749780368.698747
+          "creation_timestamp": 1750202320.947437
         },
         {
-          "invocation_id": "e-5b61cfbb-f1cd-406a-a427-d4c3f8e4c3c3",
+          "invocation_id": "e-8b46bf95-8a31-4ad9-a7a1-5bab0ac09f7a",
           "user_content": {
             "parts": [
               {
@@ -104,7 +104,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "what's the weather in chicago, usa in fahrenheit?"
+                "text": "what's the weather in boston, usa?"
               }
             ],
             "role": "user"
@@ -121,7 +121,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "The current weather in Chicago, USA is 64.04 degrees Fahrenheit.\n"
+                "text": "The current temperature in Boston, USA is 19.5 degrees Celsius.\n"
               }
             ],
             "role": null
@@ -129,42 +129,101 @@
           "intermediate_data": {
             "tool_uses": [
               {
-                "id": "adk-1bba337f-3a85-449d-a1f3-636c33838dd8",
+                "id": "adk-0cd349ac-36e6-4dc2-bfd0-3e34300450f7",
                 "args": {
                   "agent_name": "weather_agent"
                 },
                 "name": "transfer_to_agent"
               },
               {
-                "id": "adk-d3d8e1a7-ca8d-48b9-a3b4-13a48ac8cf3d",
+                "id": "adk-dbd7a4d0-23c1-4fb4-989a-5b3d97fd7265",
                 "args": {
-                  "country": "United States",
-                  "city": "chicago"
+                  "city": "boston",
+                  "country": "United States"
                 },
                 "name": "get_geocoding_v2"
               },
               {
-                "id": "adk-8a9face2-c436-4266-8156-d06f715f8320",
+                "id": "adk-0953d93f-5511-4e6e-b109-b717e33407a9",
                 "args": {
-                  "longitude": -87.65005,
-                  "latitude": 41.85003
+                  "longitude": -71.05977,
+                  "latitude": 42.35843
+                },
+                "name": "find_current_weather_v2"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750202331.840657
+        },
+        {
+          "invocation_id": "e-e0a41309-95c9-42e8-bac7-42bad09321db",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "can you tell me the weather in tampa, florida in fahrenheit?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The current temperature in Tampa, Florida is 85.64 degrees Fahrenheit.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-67cf2ff2-6959-4e4c-a2d9-f97e7ed68fba",
+                "args": {
+                  "city": "tampa",
+                  "country": "United States"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-f357f012-8e09-4830-aed0-f5792a7be904",
+                "args": {
+                  "longitude": -82.45843,
+                  "latitude": 27.94752
                 },
                 "name": "find_current_weather_v2"
               },
               {
-                "id": "adk-02150f8f-a451-4dcf-909e-62c763cf1991",
+                "id": "adk-e8a907bd-cc84-4d0e-9bc8-2b2d16b1e3c2",
                 "args": {
-                  "c_temp": 17.8
+                  "c_temp": 29.8
                 },
                 "name": "convert_c2f"
               }
             ],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749780389.083996
+          "creation_timestamp": 1750202370.290512
         },
         {
-          "invocation_id": "e-c1ad3cfb-80fc-43e2-b625-e50918ddc96c",
+          "invocation_id": "e-d63f54c6-a964-44be-9820-f1a0e32cfe4c",
           "user_content": {
             "parts": [
               {
@@ -177,7 +236,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "what's the weather in toronto, ontario?"
+                "text": "what is that in celsius?"
               }
             ],
             "role": "user"
@@ -194,36 +253,19 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "The current weather in Toronto, Ontario is 16.5 degrees Celsius.\n"
+                "text": "I already provided the temperature in Celsius, which is 29.8 degrees.\n"
               }
             ],
             "role": null
           },
           "intermediate_data": {
-            "tool_uses": [
-              {
-                "id": "adk-9ea26a1d-3966-4198-ae15-b9039462d3c4",
-                "args": {
-                  "city": "toronto",
-                  "country": "Canada"
-                },
-                "name": "get_geocoding_v2"
-              },
-              {
-                "id": "adk-3e11290b-0323-4849-8bef-cac8f843ce7d",
-                "args": {
-                  "latitude": 43.70643,
-                  "longitude": -79.39864
-                },
-                "name": "find_current_weather_v2"
-              }
-            ],
+            "tool_uses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749780410.615127
+          "creation_timestamp": 1750202384.677352
         },
         {
-          "invocation_id": "e-72309650-e407-4a92-a36d-a566145d597f",
+          "invocation_id": "e-c3ebc52a-c081-4112-9bc5-bb3c2627668a",
           "user_content": {
             "parts": [
               {
@@ -236,7 +278,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "what's the time there?"
+                "text": "what's the time in toronto, canada?"
               }
             ],
             "role": "user"
@@ -253,7 +295,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "In Toronto, Ontario, it is June 12, 2025 at 10:07 PM.\n"
+                "text": "The time in Toronto, Canada is 7:20 PM on June 17, 2025.\n"
               }
             ],
             "role": null
@@ -261,22 +303,22 @@
           "intermediate_data": {
             "tool_uses": [
               {
-                "id": "adk-24827dd4-4092-4aea-8fc1-97d68bafe5a4",
+                "id": "adk-3f0bb360-5bb2-4bdc-b026-b4e7e6401656",
                 "args": {
                   "agent_name": "time_agent"
                 },
                 "name": "transfer_to_agent"
               },
               {
-                "id": "adk-c7ad93b4-b15a-433e-aac8-e2101d51a1b4",
+                "id": "adk-f03d93a9-9169-4c73-a58a-28ffc8e24821",
                 "args": {
-                  "country": "Canada",
-                  "city": "Toronto"
+                  "city": "toronto",
+                  "country": "canada"
                 },
                 "name": "get_geocoding_v2"
               },
               {
-                "id": "adk-9abf72a4-df89-4415-8bf5-80c7e1c6df9b",
+                "id": "adk-4d47f56e-1e69-4b12-ad82-a009ea612916",
                 "args": {
                   "latitude": 43.70643,
                   "longitude": -79.39864
@@ -284,7 +326,7 @@
                 "name": "get_timezone"
               },
               {
-                "id": "adk-3953bc9f-842a-4e55-bb30-e5358325671a",
+                "id": "adk-ed5074f5-e0df-46b8-b5c5-aa380c015100",
                 "args": {
                   "timezone_name": "America/Toronto"
                 },
@@ -293,10 +335,10 @@
             ],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749780424.116342
+          "creation_timestamp": 1750202409.249753
         },
         {
-          "invocation_id": "e-564fca01-3e41-420d-9751-f3b6749a0c23",
+          "invocation_id": "e-02bbd845-3181-436e-af72-616676a1b6b6",
           "user_content": {
             "parts": [
               {
@@ -309,7 +351,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "what's the time in abu dhabi, uae?"
+                "text": "what about london, uk?"
               }
             ],
             "role": "user"
@@ -326,7 +368,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "In Abu Dhabi, UAE, it is June 13, 2025 at 6:07 AM.\n"
+                "text": "The time in London, UK is 12:20 AM on June 18, 2025.\n"
               }
             ],
             "role": null
@@ -334,35 +376,35 @@
           "intermediate_data": {
             "tool_uses": [
               {
-                "id": "adk-4f37b7e1-6743-4e62-b07d-c0186a4bcb61",
+                "id": "adk-71151a03-4c8a-4ada-aa59-fe3cbe60190d",
                 "args": {
-                  "country": "United Arab Emirates",
-                  "city": "Abu Dhabi"
+                  "country": "United Kingdom",
+                  "city": "london"
                 },
                 "name": "get_geocoding_v2"
               },
               {
-                "id": "adk-a13378e2-fd27-4878-ae09-e4625988ac99",
+                "id": "adk-7bf9e478-8f16-4112-ab26-4a1d56c07c9b",
                 "args": {
-                  "latitude": 24.45118,
-                  "longitude": 54.39696
+                  "longitude": -0.12574,
+                  "latitude": 51.50853
                 },
                 "name": "get_timezone"
               },
               {
-                "id": "adk-dc3e0193-91eb-4cff-a971-4deeecbe8b6f",
+                "id": "adk-6ad03b67-b264-4574-ace8-c0bbd11d2789",
                 "args": {
-                  "timezone_name": "Asia/Dubai"
+                  "timezone_name": "Europe/London"
                 },
                 "name": "find_current_time_in_tz"
               }
             ],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749780443.515602
+          "creation_timestamp": 1750202421.957518
         },
         {
-          "invocation_id": "e-72ad1ede-7f30-4c07-badb-be34860258c2",
+          "invocation_id": "e-0569b625-1411-43f8-8dd3-c8c1805b0395",
           "user_content": {
             "parts": [
               {
@@ -375,7 +417,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "what's the weather there?"
+                "text": "what is the weather there?"
               }
             ],
             "role": "user"
@@ -392,7 +434,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "The current weather in Abu Dhabi, UAE is 31.5 degrees Celsius.\n"
+                "text": "The current temperature in London, UK is 20.1 degrees Celsius.\n"
               }
             ],
             "role": null
@@ -400,35 +442,35 @@
           "intermediate_data": {
             "tool_uses": [
               {
-                "id": "adk-4606e3af-269f-48f4-9dd1-6309cdf80392",
+                "id": "adk-fdc4aacb-f0fc-4635-ad12-cc6e82283898",
                 "args": {
                   "agent_name": "weather_agent"
                 },
                 "name": "transfer_to_agent"
               },
               {
-                "id": "adk-76ba9c55-7836-4f8f-97ee-6d221d370c62",
+                "id": "adk-761c8e92-abf3-4024-95ce-0a790c351e3e",
                 "args": {
-                  "country": "United Arab Emirates",
-                  "city": "Abu Dhabi"
+                  "country": "United Kingdom",
+                  "city": "london"
                 },
                 "name": "get_geocoding_v2"
               },
               {
-                "id": "adk-e21f9290-557b-4150-a86d-81bf3a2e3dd3",
+                "id": "adk-4e9f89bf-48ba-4a48-b2a8-a671530925c8",
                 "args": {
-                  "latitude": 24.45118,
-                  "longitude": 54.39696
+                  "longitude": -0.12574,
+                  "latitude": 51.50853
                 },
                 "name": "find_current_weather_v2"
               }
             ],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749780461.298115
+          "creation_timestamp": 1750202486.432185
         },
         {
-          "invocation_id": "e-c5c408a8-ba91-411f-b86c-50a9d98d51ce",
+          "invocation_id": "e-34861bce-9b98-44b0-8172-86e899b93182",
           "user_content": {
             "parts": [
               {
@@ -441,7 +483,7 @@
                 "executable_code": null,
                 "function_call": null,
                 "function_response": null,
-                "text": "thanks"
+                "text": "thanks!"
               }
             ],
             "role": "user"
@@ -467,7 +509,7 @@
             "tool_uses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1749780474.386038
+          "creation_timestamp": 1750202499.113816
         }
       ],
       "session_input": {
@@ -475,8 +517,8 @@
         "user_id": "user",
         "state": {}
       },
-      "creation_timestamp": 1749780489.2454798
+      "creation_timestamp": 1750202521.946303
     }
   ],
-  "creation_timestamp": 1749780484.452825
+  "creation_timestamp": 1750202518.01289
 }

@@ -59,6 +59,7 @@ adk eval \
     weather_time_agent \
     eval/data/weather.evalset.json
 ```
+**NOTE:** I have variants for Gemini 2.0 Flash (*weatherg20f*) and Gemini 2.0 Flash Lite (*weatherg20flite*)
 
 - sample (partial) output:
 ```console

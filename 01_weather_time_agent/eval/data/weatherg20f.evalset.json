@@ -1,0 +1,744 @@
+{
+  "eval_set_id": "weathertime",
+  "name": "weathertime",
+  "description": null,
+  "eval_cases": [
+    {
+      "eval_id": "casec0a794",
+      "conversation": [
+        {
+          "invocation_id": "e-a68aa0d6-87e9-49a1-afed-f9d46616e003",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "hi"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "Hello! How can I help you today?\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182475.023141
+        },
+        {
+          "invocation_id": "e-600ecc83-1c12-4f4e-80ba-8ad5bac148e7",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what can you do?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "I can answer questions about the current date/time and weather in any city. I can also transfer you to another agent if it is better suited to answer your question.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182487.952883
+        },
+        {
+          "invocation_id": "e-beb926c5-1c09-4c24-a35c-22bc6a81c050",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what's the weather like in toronto, ontario?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The current temperature in Toronto, Canada is 25.3 degrees Celsius.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-7a7d7eaa-9ffc-4a2d-b9eb-aab1e4881bcb",
+                "args": {
+                  "agent_name": "weather_agent"
+                },
+                "name": "transfer_to_agent"
+              },
+              {
+                "id": "adk-3f7d19f8-348f-4a4e-9a8e-5a205fd55b71",
+                "args": {
+                  "city": "toronto",
+                  "country": "canada"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-cd81726e-d919-47f1-b038-5024657f358f",
+                "args": {
+                  "longitude": -79.39864,
+                  "latitude": 43.70643
+                },
+                "name": "find_current_weather_v2"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182513.403445
+        },
+        {
+          "invocation_id": "e-ccc96061-fe44-4290-a367-2d1a4f3378e5",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what's the time there?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The date and time in Toronto, Canada is June 17, 2025 at 1:48 PM.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-22195172-590c-49ed-a059-626a696815c8",
+                "args": {
+                  "agent_name": "time_agent"
+                },
+                "name": "transfer_to_agent"
+              },
+              {
+                "id": "adk-1c6e4f5a-f42f-4f36-b18b-8e419f81c2a7",
+                "args": {
+                  "country": "canada",
+                  "city": "toronto"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-b39e5e8e-38fb-4721-ad88-8e2171285287",
+                "args": {
+                  "longitude": -79.39864,
+                  "latitude": 43.70643
+                },
+                "name": "get_timezone"
+              },
+              {
+                "id": "adk-0badc3aa-b1aa-400b-95b5-768cc69ceae9",
+                "args": {
+                  "timezone_name": "America/Toronto"
+                },
+                "name": "find_current_time_in_tz"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182529.401406
+        },
+        {
+          "invocation_id": "e-6f70e0ef-808a-44bb-a56a-354f2ae376ea",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what's the weather in chicago, illinois?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The current temperature in Chicago, Illinois is 32.1 degrees Celsius.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-edbf574b-cf50-45a8-a44f-28b928c34977",
+                "args": {
+                  "agent_name": "weather_agent"
+                },
+                "name": "transfer_to_agent"
+              },
+              {
+                "id": "adk-e7d907d4-0a98-4730-b8f4-b55d121fb587",
+                "args": {
+                  "country": "United States",
+                  "city": "chicago"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-0b4c3891-9ef3-4fe1-842e-03b499e5b218",
+                "args": {
+                  "latitude": 41.85003,
+                  "longitude": -87.65005
+                },
+                "name": "find_current_weather_v2"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182548.957877
+        },
+        {
+          "invocation_id": "e-cd4e1556-1387-48a8-a2eb-55941ce9f327",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what is it in fahrenheit?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The current temperature in Chicago, Illinois is 89.78 degrees Fahrenheit.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-37a3f6cc-6a41-401a-831e-e8a868a93a4a",
+                "args": {
+                  "c_temp": 32.1
+                },
+                "name": "convert_c2f"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182563.007903
+        },
+        {
+          "invocation_id": "e-e5166056-b367-4ee0-b2df-822f32fae318",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what about the time there?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "In Chicago, Illinois, it is June 17, 2025 at 12:49 PM.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-7cfa06d7-c91c-463e-8b2c-4b99ca2c7b1b",
+                "args": {
+                  "agent_name": "time_agent"
+                },
+                "name": "transfer_to_agent"
+              },
+              {
+                "id": "adk-e2ffcbcc-80e4-450a-bd4c-aaad907bf294",
+                "args": {
+                  "city": "chicago",
+                  "country": "United States"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-3d8f29ca-8ae6-4458-853f-f44846c4ab6f",
+                "args": {
+                  "longitude": -87.65005,
+                  "latitude": 41.85003
+                },
+                "name": "get_timezone"
+              },
+              {
+                "id": "adk-82535c4f-89a1-47e2-9650-f05d6e5d5942",
+                "args": {
+                  "timezone_name": "America/Chicago"
+                },
+                "name": "find_current_time_in_tz"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182578.233095
+        },
+        {
+          "invocation_id": "e-220a8472-79b4-4eea-bd71-b367230bf776",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what time is it in nagasaki, japan?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "In Nagasaki, Japan, it is June 18, 2025 at 2:49 AM.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-d1f8b8f4-36fb-48a7-9d9f-24b31a1ad521",
+                "args": {
+                  "country": "japan",
+                  "city": "nagasaki"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-d95c6ed5-f867-468a-94ec-47b1380e4bca",
+                "args": {
+                  "latitude": 32.75,
+                  "longitude": 129.88333
+                },
+                "name": "get_timezone"
+              },
+              {
+                "id": "adk-37eed0cc-a89e-4625-9ed3-c2c489f4d08a",
+                "args": {
+                  "timezone_name": "Asia/Tokyo"
+                },
+                "name": "find_current_time_in_tz"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182594.286741
+        },
+        {
+          "invocation_id": "e-26d8dec0-8dad-4438-8cc1-f8d912ce741e",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what's the weather there like?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The current temperature in Nagasaki, Japan is 23.5 degrees Celsius.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-bf2c9f33-5070-410e-817d-4a72220284ed",
+                "args": {
+                  "agent_name": "weather_agent"
+                },
+                "name": "transfer_to_agent"
+              },
+              {
+                "id": "adk-5101616e-870a-40d5-9e85-1e8cad1daeea",
+                "args": {
+                  "city": "nagasaki",
+                  "country": "japan"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-f11b62d9-75c0-4226-ab8b-c421d03d6a6a",
+                "args": {
+                  "latitude": 32.75,
+                  "longitude": 129.88333
+                },
+                "name": "find_current_weather_v2"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182607.329413
+        },
+        {
+          "invocation_id": "e-d3e20fe9-56f0-4241-881e-ff6da7361aa1",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "what's the weather like in abu dhabi, uae in fahrenheit?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "The current temperature in Abu Dhabi, UAE is 90.86 degrees Fahrenheit."
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-eb5428ee-3335-4930-be55-5265cfa242fd",
+                "args": {
+                  "country": "United Arab Emirates",
+                  "city": "abu dhabi"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-b0e62da6-f60a-4e43-bea1-f92399eabf19",
+                "args": {
+                  "longitude": 54.39696,
+                  "latitude": 24.45118
+                },
+                "name": "find_current_weather_v2"
+              },
+              {
+                "id": "adk-ff75e9ec-edec-4896-8c82-8544a5b61af5",
+                "args": {
+                  "c_temp": 32.7
+                },
+                "name": "convert_c2f"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182629.92922
+        },
+        {
+          "invocation_id": "e-366d3625-498e-4a3e-ac09-6a82c9f15a54",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "and the time there?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "In Abu Dhabi, UAE, it is June 17, 2025 at 9:50 PM.\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "adk-495da438-0ce1-45a3-9211-fa7c663c1615",
+                "args": {
+                  "agent_name": "time_agent"
+                },
+                "name": "transfer_to_agent"
+              },
+              {
+                "id": "adk-b686f992-2820-4bb3-90ae-0d9d9deba12f",
+                "args": {
+                  "country": "United Arab Emirates",
+                  "city": "abu dhabi"
+                },
+                "name": "get_geocoding_v2"
+              },
+              {
+                "id": "adk-ad6ed035-1ee4-44a7-ae23-5ebf0c44a55c",
+                "args": {
+                  "longitude": 54.39696,
+                  "latitude": 24.45118
+                },
+                "name": "get_timezone"
+              },
+              {
+                "id": "adk-69be20d0-1931-499c-ba2c-4314a31f6bac",
+                "args": {
+                  "timezone_name": "Asia/Dubai"
+                },
+                "name": "find_current_time_in_tz"
+              }
+            ],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182643.691584
+        },
+        {
+          "invocation_id": "e-a7338aba-bbbc-41ed-8e9b-3f4431e2fc0c",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "thank you!"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_call": null,
+                "function_response": null,
+                "text": "You're welcome, matey! If ye ever need to know the time in another port, just let me know!\n"
+              }
+            ],
+            "role": null
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          },
+          "creation_timestamp": 1750182659.985838
+        }
+      ],
+      "session_input": {
+        "app_name": "weather_time_agent",
+        "user_id": "user",
+        "state": {}
+      },
+      "creation_timestamp": 1750182676.769516
+    }
+  ],
+  "creation_timestamp": 1750182671.379338
+}
