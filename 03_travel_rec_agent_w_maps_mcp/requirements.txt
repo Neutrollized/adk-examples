@@ -1,0 +1,11 @@
+google-adk >= 1.4.2
+google-genai >= 1.21.1
+
+# agent engine
+google-cloud-aiplatform[adk,agent_engines]
+
+# testing/evaluation
+pytest == 8.4.1
+dotenv == 0.9.9
+scikit-learn == 1.7.0
+tabulate == 0.9.0
