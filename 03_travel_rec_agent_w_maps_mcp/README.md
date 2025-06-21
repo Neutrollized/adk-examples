@@ -2,7 +2,19 @@
 
 This agent uses a local [Google Maps MCP server](https://www.npmjs.com/package/@modelcontextprotocol/server-google-maps) to give travel recommendations to the user.  The user can ask about restaurants, hotels, etc. that are near a given primary location.
 
-**NOTE:** I've noticed that it doesn't always honor the correct distance restrictions (i.e. within a given radius).
+**ATTENTION:** I've noticed that this implementation sometimes has bugs regarding calculating distance and/or travel time and doesn't always honor the correct distance restrictions (i.e. within a given radius).  Sometimes the directions are wrong too.  This doesn't line up with what's on Google Maps so I can deduce this to be a logic issue in the MCP server code itself, so don't trust this for directions for now :)
+
+
+## Setup
+For this example, you will need a Google Maps Platform API key.  I restricted my APIs to the following:
+- Directions API
+- Distance Matrix API
+- Geocoding API
+- Places API
+
+You may need to expand on this if you wish to add more functionality.  Here is the [Google Maps Platform API Picker](https://developers.google.com/maps/documentation/api-picker) to help you decided what you need.  You will also need an set an additional environment variable, `GOOGLE_MAPS_API_KEY`.
+
+Of course, there will be a [cost](https://mapsplatform.google.com/pricing) to using the Maps API as well.  It's got a pretty generous free-tier, depending on what you're using, just don't go crazy with it ;)
 
 
 ## Running Agent

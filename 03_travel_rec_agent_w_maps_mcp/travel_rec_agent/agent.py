@@ -4,6 +4,8 @@ from google.adk.agents.llm_agent import LlmAgent
 from google.adk.tools.agent_tool import AgentTool
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StdioServerParameters
 
+from . import prompt
+
 
 #-------------------
 # settings
@@ -18,9 +20,7 @@ google_maps_api_key=os.getenv("GOOGLE_MAPS_API_KEY")
 maps_agent = LlmAgent(
     name="maps_agent",
     model=model,
-    instruction=(
-        "Help the user with mapping, directions, and finding places using Google Maps tools."
-    ),
+    instruction=prompt.MAPS_AGENT_PROMPT,
     tools=[
         MCPToolset(
             connection_params=StdioServerParameters(
@@ -36,7 +36,7 @@ maps_agent = LlmAgent(
                 },
             ),
             # You can filter for specific Map tools if needed:
-            # tool_filter=['get_directions', 'find_place_by_id']
+            # tool_filter=['search_places', 'get_distance_matrix', 'get_directions']
         )
     ],
 )
@@ -44,11 +44,9 @@ maps_agent = LlmAgent(
 travel_rec_agent = LlmAgent(
     name="travel_rec_agent",
     model=model,
-    instruction=(
-        "You are a helpful assistant designed to provide travel advice and directions."
-    ),
+    instruction=prompt.TRAVEL_RECOMMENDER_PROMPT,
     tools=[
-        AgentTool(agent=maps_agent)
+        AgentTool(agent=maps_agent),
     ],
 )
 
