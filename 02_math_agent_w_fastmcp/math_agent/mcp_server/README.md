@@ -10,7 +10,7 @@ or
 fastmcp run server.py --transport sse
 ```
 
-**NOTE:** if you use the `fastmcp` option, it ignores the `if __name__ == "__main__"`, so you need to pass `--transport` and `--port`
+**NOTE:** if you use the `fastmcp` option, it ignores the `if __name__ == "__main__"`, so you need to pass `--transport` and any other settings you wish to override
 
 ```console
 INFO:     Started server process [33440]

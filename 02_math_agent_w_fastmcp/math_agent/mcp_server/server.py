@@ -22,8 +22,8 @@ transport=os.environ.get("FASTMCP_TRANSPORT", "streamable-http")
 # Initialize FastMCP server
 mcp = FastMCP(
     name="FastMCP Math Server",
-    host=host,
-    port=port
+    dependencies=["asyncio==3.4.3"],
+    on_duplicate_tools="error",
 )
 
 # Tool to add two numbers.

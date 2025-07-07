@@ -2,8 +2,11 @@
 
 This agent uses a local [Google Maps MCP server](https://www.npmjs.com/package/@modelcontextprotocol/server-google-maps) to give travel recommendations to the user.  The user can ask about restaurants, hotels, etc. that are near a given primary location.
 
-**ATTENTION:** I've noticed that this implementation sometimes has bugs regarding calculating distance and/or travel time and doesn't always honor the correct distance restrictions (i.e. within a given radius).  Sometimes the directions are wrong too.  This doesn't line up with what's on Google Maps so I can deduce this to be a logic issue in the MCP server code itself, so don't trust this for directions for now :)
+**ATTENTION:** I've noticed that this implementation sometimes has bugs regarding calculating distance and/or travel time. Sometimes the directions are wrong too.  This doesn't line up with what's on Google Maps so I can deduce this to be a logic issue in the MCP server code itself, so don't trust this for directions for now.  This is especially true if one of your locations is a school campus where different buildings across the campus may have the same address and this affects how the route is planned.
 
+**NOTE:** Recently, I decided to create and maintain my very own [Google Maps MCP server (written in Python)](https://github.com/Neutrollized/google-maps-mcp-server) as the modelcontextprotocol.io one has been removed in the most recent release and hence won't be maintained.  I'm going to leave this particular example agent to use the mcp.io one to show the different implementation/deployment options that are available.
+
+**REMINDER:** When you ask places within a certain *radius*, remember that this is a straight line distance between the two points, so your actually travel distance will be greater.
 
 ## Setup
 For this example, you will need a Google Maps Platform API key.  I restricted my APIs to the following:

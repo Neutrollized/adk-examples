@@ -10,7 +10,7 @@ from . import prompt
 #-------------------
 # settings
 #-------------------
-model="gemini-2.5-flash"
+model="gemini-2.0-flash-lite"
 google_maps_api_key=os.getenv("GOOGLE_MAPS_API_KEY")
 
 
