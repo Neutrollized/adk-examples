@@ -10,7 +10,7 @@ or
 fastmcp run server.py --transport sse
 ```
 
-**NOTE:** if you use the `fastmcp` option, it ignores the `if __name__ == "__main__"`, so you need to pass `--transport` and `--port`
+**NOTE:** if you use the `fastmcp` option, it ignores the `if __name__ == "__main__"`, so you need to pass `--transport` and any other settings you wish to override
 
 ```console
 INFO:     Started server process [33440]
@@ -47,3 +47,33 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
 ```
 
 As you can see in the above output, it created a secure tunnel from a randomly generated public URL to my localhost, and now I can pass this URL as an environment variable to my agent.
+
+
+## Cloud Run 
+I'm building the image from my Macbook, which is an arm64 so I'm using `docker-buildx` to build it for amd64, so your command here may vary:
+```
+docker-buildx build \
+  --platform linux/amd64 \
+  --push \
+  -t {REGION}-docker.pkg.dev/{PROJECT_ID}/{REPO_NAME}/fastmcp-math-server:v1.0.0-sse .
+```
+
+```
+gcloud beta run deploy fastmcp-math-server \
+  --allow-unauthenticated \
+  --ingress all \
+  --execution-environment gen1 \
+  --concurrency 40 \
+  --cpu 1 \
+  --memory 128Mi \
+  --cpu-boost \
+  --image {REGION}-docker.pkg.dev/{PROJECT_ID}/{REPO_NAME}/fastmcp-math-server:v1.0.0-sse \
+  --region {REGION} \
+  --min-instances 0 \
+  --max-instances 1 \
+  --platform managed \
+  --port 8080 \
+  --timeout 300 \
+  --set-env-vars FASTMCP_TRANSPORT="sse"
+```
+**NOTE:** - I haven't yet tested Cloud Run with Streamable-HTTP hence still using SSE for now
