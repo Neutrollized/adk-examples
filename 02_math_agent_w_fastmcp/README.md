@@ -21,7 +21,7 @@ adk web
 
 - ADK cli/terminal:
 ```
-adk run math_agent_w_fastmcp
+adk run math_agent
 ```
 
 - sample terminal output from `adk run math_agent_w_fastmcp`:
@@ -59,7 +59,7 @@ The following testing commands are executed from the `02_math_agent_w_fastmcp` d
 adk eval \
     --config_file_path eval/data/test_config.json \
     --print_detailed_results \
-    math_agent_w_fastmcp \
+    math_agent \
     eval/data/math.evalset.json
 ```
 
