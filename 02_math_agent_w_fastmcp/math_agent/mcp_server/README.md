@@ -7,7 +7,7 @@ python ./server.py
 ```
 or
 ```sh
-fastmcp run server.py --transport sse
+fastmcp run server.py --port 8080 --transport sse
 ```
 
 **NOTE:** if you use the `fastmcp` option, it ignores the `if __name__ == "__main__"`, so you need to pass `--transport` and any other settings you wish to override
