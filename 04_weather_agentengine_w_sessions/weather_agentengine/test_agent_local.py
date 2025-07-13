@@ -25,8 +25,6 @@ from tools.tools import (
 #-------------------
 model="gemini-2.5-flash"
 
-verify=True
-
 COUNTRY_ABBREV_DICT = {
     # keys should be all uppercase here
     "USA": "United States",
