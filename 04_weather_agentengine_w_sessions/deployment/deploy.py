@@ -83,14 +83,14 @@ def main(argv: list[str]) -> None:
     print(f"BUCKET: {staging_bucket}")
 
     if not project_id:
-        print("Missing required environment variable: AE_PROJECT_ID")
+        print("Missing required environment variable: GOOGLE_CLOUD_PROJECT")
         return
     elif not location:
-        print("Missing required environment variable: AE_LOCATION")
+        print("Missing required environment variable: GOOGLE_CLOUD_LOCATION")
         return
     elif not staging_bucket:
         print(
-            "Missing required environment variable: AE_STAGING_BUCKET"
+            "Missing required environment variable: GOOGLE_CLOUD_AGENT_ENGINE_STAGING_BUCKET"
         )
         return
 
