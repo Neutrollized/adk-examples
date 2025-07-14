@@ -8,8 +8,8 @@ import requests
 #----------------------------------
 # config
 #----------------------------------
-project_id = os.getenv('AE_PROJECT_ID')
-location = os.getenv('AE_LOCATION')
+project_id = os.getenv('GOOGLE_CLOUD_PROJECT')
+location = os.getenv('GOOGLE_CLOUD_LOCATION')
 reasoning_engine_resource_id = "7328790356894416896"    # UPDATE ME!
 user_id = "user456"
 session_id = "5287404633172475904"                      # UPDATE ME!

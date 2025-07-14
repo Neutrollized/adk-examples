@@ -8,8 +8,8 @@ from google.adk.sessions import VertexAiSessionService
 #--------------------
 # config
 #--------------------
-project_id = os.getenv('AE_PROJECT_ID')
-location = os.getenv('AE_LOCATION')
+project_id = os.getenv('GOOGLE_CLOUD_PROJECT')
+location = os.getenv('GOOGLE_CLOUD_LOCATION')
 reasoning_engine_resource_id = "7328790356894416896"    # UPDATE ME
 reasoning_engine_name = f"projects/{project_id}/locations/{location}/reasoningEngines/{reasoning_engine_resource_id}"
 

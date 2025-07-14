@@ -1,14 +1,14 @@
 #! /bin/sh
 
-PROJECT_ID="[PROJECT_ID_HERE]"  # UPDATE ME!
-LOCATION="us-central1"
-AGENT_ID="[AGENT_ID_HERE]"      # UPDATE ME!
+GOOGLE_CLOUD_PROJECT="[PROJECT_ID_HERE]"  # UPDATE ME!
+GOOGLE_CLOUD_LOCATION="us-central1"
+GOOGLE_CLOUD_AGENT_ENGINE_ID="[AGENT_ID_HERE]"      # UPDATE ME!
 
 
 curl \
 -H "Authorization: Bearer $(gcloud auth print-access-token)" \
 -H "Content-Type: application/json" \
-  https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/reasoningEngines/${AGENT_ID}:streamQuery?alt=sse -d '{
+  https://${GOOGLE_CLOUD_LOCATION}-aiplatform.googleapis.com/v1/projects/${GOOGLE_CLOUD_PROJECT}/locations/${GOOGLE_CLOUD_LOCATION}/reasoningEngines/${GOOGLE_CLOUD_AGENT_ENGINE_ID}:streamQuery?alt=sse -d '{
   "class_method": "stream_query",
   "input": {
     "user_id": "user123",

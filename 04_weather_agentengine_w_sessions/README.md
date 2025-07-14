@@ -78,9 +78,9 @@ This method deploys to Vertex AI's [Agent Engine](https://cloud.google.com/verte
 
 ### Setup
 You will need to first create a GCS bucket for GCP to use as a staging area/bucket.  In addition to that you will need to set 3 environment variables:
-- `AE_PROJECT_ID`       (your GCP project ID)
-- `AE_LOCATION`         (deployment location for your Agent Engine)
-- `AE_STAGING_BUCKET`   (GCS bucket name, without the gs://)
+- `GOOGLE_CLOUD_PROJECT`                        (your GCP project ID)
+- `GOOGLE_CLOUD_LOCATION`                       (deployment location for your Agent Engine)
+- `GOOGLE_CLOUD_AGENT_ENGINE_STAGING_BUCKET`    (GCS bucket name, without the gs://)
 
 Create your Agent Engine with:
 ```sh
@@ -177,8 +177,14 @@ USER: user456
 STATE: {'units': 'imperial', 'weather_response': 'The weather in San Jose, USA is 83.48°F.'}
 ```
 
-## NOTE
 You can try creating another saved session for **user123** and use send your queries to the agent via `curl` instead.  See [`rest_request.sh`](./rest_request.sh) for details.
+
+
+### NOTE
+You *can* access your Agent Engine's session service via:
+```sh
+adk web --session_service_uri=agentengine://8769942237652975616
+```
 
 
 ## Cleanup

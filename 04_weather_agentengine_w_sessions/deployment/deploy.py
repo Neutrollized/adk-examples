@@ -17,9 +17,9 @@ from weather_agentengine.agent import root_agent
 #-------------------------
 # config
 #-------------------------
-project_id = os.getenv('AE_PROJECT_ID')
-location = os.getenv('AE_LOCATION')
-staging_bucket = os.getenv('AE_STAGING_BUCKET') # without gs://
+project_id = os.getenv('GOOGLE_CLOUD_PROJECT')
+location = os.getenv('GOOGLE_CLOUD_LOCATION')
+staging_bucket = os.getenv('GOOGLE_CLOUD_AGENT_ENGINE_STAGING_BUCKET') # without gs://
 
 
 
