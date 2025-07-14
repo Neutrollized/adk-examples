@@ -46,8 +46,6 @@ def create() -> None:
             "absl-py (>=2.2.1,<3.0.0)",
             "grpcio (==1.67.1)",    # suppresses some absl warnings
             "dotenv (== 0.9.9)",
-            "pytz (==2025.2)",
-            "timezonefinder (==6.5.9)",
         ],
         extra_packages=[
             "weather_agentengine/agent.py",
