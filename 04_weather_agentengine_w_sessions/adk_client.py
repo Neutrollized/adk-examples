@@ -2,21 +2,18 @@ import os
 import json
 import vertexai
 from vertexai import agent_engines
-from google.adk.sessions import VertexAiSessionService
 
 
 #--------------------
 # config
 #--------------------
-project_id = os.getenv('GOOGLE_CLOUD_PROJECT')
-location = os.getenv('GOOGLE_CLOUD_LOCATION')
-reasoning_engine_resource_id = "7328790356894416896"    # UPDATE ME
+project_id = os.getenv('AE_PROJECT')
+location = os.getenv('AE_LOCATION')
+reasoning_engine_resource_id = os.getenv('AE_RESOURCE_ID')
 reasoning_engine_name = f"projects/{project_id}/locations/{location}/reasoningEngines/{reasoning_engine_resource_id}"
 
 adk_app = agent_engines.get(reasoning_engine_name)
 #print(adk_app.operation_schemas())
-
-session_service = VertexAiSessionService(project="gcp-demos-390500", location="us-central1")
 
 #user_id = "user123"      # An identifier for the user
 user_id = "user456"      # An identifier for the user

@@ -78,9 +78,9 @@ This method deploys to Vertex AI's [Agent Engine](https://cloud.google.com/verte
 
 ### Setup
 You will need to first create a GCS bucket for GCP to use as a staging area/bucket.  In addition to that you will need to set 3 environment variables:
-- `GOOGLE_CLOUD_PROJECT`                        (your GCP project ID)
-- `GOOGLE_CLOUD_LOCATION`                       (deployment location for your Agent Engine)
-- `GOOGLE_CLOUD_AGENT_ENGINE_STAGING_BUCKET`    (GCS bucket name, without the gs://)
+- `AE_PROJECT`          (your GCP project ID)
+- `AE_LOCATION`         (deployment location for your Agent Engine)
+- `AE_STAGING_BUCKET`   (GCS bucket name, without the gs://)
 
 Create your Agent Engine with:
 ```sh

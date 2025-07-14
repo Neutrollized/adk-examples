@@ -17,9 +17,9 @@ from weather_agentengine.agent import root_agent
 #-------------------------
 # config
 #-------------------------
-project_id = os.getenv('GOOGLE_CLOUD_PROJECT')
-location = os.getenv('GOOGLE_CLOUD_LOCATION')
-staging_bucket = os.getenv('GOOGLE_CLOUD_AGENT_ENGINE_STAGING_BUCKET') # without gs://
+project_id = os.getenv('AE_PROJECT')
+location = os.getenv('AE_LOCATION')
+staging_bucket = os.getenv('AE_STAGING_BUCKET') # without gs://
 
 
 
@@ -81,16 +81,17 @@ def main(argv: list[str]) -> None:
     print(f"PROJECT: {project_id}")
     print(f"LOCATION: {location}")
     print(f"BUCKET: {staging_bucket}")
+    print("-------------------------")
 
     if not project_id:
-        print("Missing required environment variable: GOOGLE_CLOUD_PROJECT")
+        print("Missing required environment variable: AE_PROJECT")
         return
     elif not location:
-        print("Missing required environment variable: GOOGLE_CLOUD_LOCATION")
+        print("Missing required environment variable: AE_LOCATION")
         return
     elif not staging_bucket:
         print(
-            "Missing required environment variable: GOOGLE_CLOUD_AGENT_ENGINE_STAGING_BUCKET"
+            "Missing required environment variable: AE_STAGING_BUCKET"
         )
         return
 
