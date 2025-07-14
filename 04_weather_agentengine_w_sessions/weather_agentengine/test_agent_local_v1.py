@@ -1,11 +1,8 @@
-"""This module defines agents for weather and time inquiries."""
 import asyncio
-import logging
+import json
+import requests
 import sys
 from google.adk.agents.llm_agent import LlmAgent
-from google.adk.runners import Runner
-from google.adk.sessions import Session
-from google.adk.tools import FunctionTool
 from google.genai import types  # this is needed for GenerateContentConfig
 from google.genai.types import Content, Part
 
@@ -16,22 +13,16 @@ from google.adk.tools.tool_context import ToolContext
 from google.adk.tools.base_tool import BaseTool
 from typing import Optional, Dict, Any
 
-from .tools.tools import (
+# import tools
+from tools.tools import (
     get_geocoding,
     find_current_weather,
     convert_c2f,
 )
 
-# https://google.github.io/adk-docs/tools/#tool-types-in-adk
-geocoding_tool = FunctionTool(func=get_geocoding)
-current_weather_tool = FunctionTool(func=find_current_weather)
-celsius2fahrenheit_tool = FunctionTool(func=convert_c2f)
-
-
 #-------------------
 # settings
 #-------------------
-logger=logging.getLogger(__name__)
 model="gemini-2.5-flash"
 
 COUNTRY_ABBREV_DICT = {
@@ -51,17 +42,16 @@ COUNTRY_ABBREV_DICT = {
 def country_name_before_tool_modifier(tool: BaseTool, args: Dict[str, Any], tool_context: ToolContext) -> Optional[Dict]:
     """Inspects/modifies tool args or skips the tool call."""
     agent_name = tool_context.agent_name
+    agent_state = tool_context.state.to_dict()
     tool_name = tool.name
-    print(f"[Callback] Before tool call for tool '{tool_name}' in agent '{agent_name}'")
-    print(f"[Callback] Original args: {args}")
-    print(f"[Callback] Tool context: {tool_context.state.to_dict()}")
-    print(f"[Callback] Tool context state: {tool_context.state}")
+    #print(f"[Tool Callback] Before tool call for tool '{tool_name}' in agent '{agent_name}'")
+    #print(f"[Tool Callback] Original args: {args}")
 
     # need to provide the Python function name here not the wrapped FunctionTool name...
     if tool_name == 'get_geocoding' and args.get('country', '').upper() in COUNTRY_ABBREV_DICT:
-        print(f"[Callback] Detected {args.get('country', '').upper()}. Modifying arg to {COUNTRY_ABBREV_DICT[args.get('country', '').upper()]}.")
+        print(f"[Tool Callback] Detected {args.get('country', '').upper()}. Modifying arg to {COUNTRY_ABBREV_DICT[args.get('country', '').upper()]}.")
         args['country'] = COUNTRY_ABBREV_DICT[args.get('country', '').upper()]
-        print(f"[Callback] Modified args: {args}")
+        print(f"[Tool Callback] Modified args: {args}")
         return None
 
     return None
@@ -81,13 +71,60 @@ weather_agent = LlmAgent(
         "You are a helpful agent who can answer user questions about the weather in a city and country in {units?}."
     ),
     tools=[
-        geocoding_tool,
-        current_weather_tool,
-        celsius2fahrenheit_tool,
+        get_geocoding,
+        find_current_weather,
+        convert_c2f,
     ],
     output_key="weather_response",
     before_tool_callback=country_name_before_tool_modifier,
 )
 
-
 root_agent = weather_agent
+
+
+#-----------------------
+# local execution
+#-----------------------
+from vertexai.preview import reasoning_engines
+
+app = reasoning_engines.AdkApp(
+    agent=root_agent,
+    enable_tracing=True,
+)
+
+
+print("\n---------- USER 1 ---------------\n")
+session_user1 = app.create_session(
+    user_id="user1",
+    session_id="session_user1",
+    state={"units": "imperial"},
+)
+#print(session_user1)
+for event in app.stream_query(
+    user_id="user1",
+    session_id="session_user1",
+    message="What's the weather in Chicago, USA?"
+):
+    #print(event)
+    if "actions" in event and "weather_response" in event["actions"]["state_delta"]:
+        final_response = event["actions"]["state_delta"]["weather_response"]
+        print(f"\nFINAL RESPONSE: {final_response}")
+
+
+
+print("\n---------- USER 2 ---------------\n")
+session_user2 = app.create_session(
+    user_id="user2",
+    session_id="session_user2",
+)
+#print(session_user2)
+for event in app.stream_query(
+    user_id="user2",
+    session_id="session_user2",
+    message="What's the weather in Tokyo, Japan?"
+):
+    #print(event)
+    if "actions" in event and "weather_response" in event["actions"]["state_delta"]:
+        final_response = event["actions"]["state_delta"]["weather_response"]
+        print(f"\nFINAL RESPONSE: {final_response}")
+

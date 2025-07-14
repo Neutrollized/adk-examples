@@ -7,10 +7,17 @@ This agent can tell you the weather of a given city and country (it's a slimmed 
 This is the cost-effective way of testing sessions and state, but the conversation is not interactive.
 
 ```sh
-python weather_agentengine/test_agent_local.py
+python weather_agentengine/test_agent_local_v1.py
+
+or 
+
+python weather_agentengine/test_agent_local_v2.py
 ```
 
-- sample output:
+v1 references the state variable value directly in the agent's instructions, while v2 uses a callback function to modify the instructions depending on the value.
+
+
+- sample output (from `test_agent_local_v2.py`):
 ```console
 ---------- USER 1 ---------------
 
