@@ -36,7 +36,7 @@ fahrenheit2celsius_tool = FunctionTool(func=convert_f2c)
 # settings
 #-------------------
 logger=logging.getLogger(__name__)
-model="gemini-2.0-flash-lite"
+model="gemini-2.5-flash-lite"
 
 PROFANITY_LIST=["dangit", "fudge", "bing"]
 
