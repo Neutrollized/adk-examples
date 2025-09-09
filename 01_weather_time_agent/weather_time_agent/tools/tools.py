@@ -206,6 +206,7 @@ async def find_current_time_in_tz(timezone_name: str) -> str:
     try:
         tz = pytz.timezone(timezone_name)
         now = datetime.now(tz)
+        print(f"[DEBUG] current time in {tz}: {now.isoformat()}")
         return now.isoformat()
     except pytz.exceptions.UnknownTimeZoneError:
         print(f"Error: Timezone '{timezone_name}' is not recognized.")

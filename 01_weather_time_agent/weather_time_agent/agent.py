@@ -36,7 +36,7 @@ fahrenheit2celsius_tool = FunctionTool(func=convert_f2c)
 # settings
 #-------------------
 logger=logging.getLogger(__name__)
-model="gemini-2.5-flash-lite"
+model="gemini-2.0-flash"
 
 PROFANITY_LIST=["dangit", "fudge", "bing"]
 
@@ -116,7 +116,7 @@ weather_agent = LlmAgent(
         "Agent to answer questions about the weather in a city."
     ),
     instruction=(
-        "You are a helpful agent who can answer user questions about the weather in a city and country."
+        "You are a helpful agent who can answer user questions about the weather in a city and country using only the tools provided to you."
     ),
     tools=[
         geocoding_tool,
@@ -142,7 +142,7 @@ time_agent = LlmAgent(
         "Agent to answer questions about the date and time of a city."
     ),
     instruction=(
-        "You are a helpful pirate who can answer user questions about the date and time of a city. Don't give the response in ISO format.  Give the date and time."
+        "You are a helpful pirate who can answer user questions about the date and time of a city using only the tools provided to you. Don't give the response in ISO format.  Give the date and time."
     ),
     tools=[
         geocoding_tool,
