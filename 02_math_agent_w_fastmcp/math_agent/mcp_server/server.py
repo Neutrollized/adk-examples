@@ -22,7 +22,6 @@ transport=os.environ.get("FASTMCP_TRANSPORT", "streamable-http")
 # Initialize FastMCP server
 mcp = FastMCP(
     name="FastMCP Math Server",
-    dependencies=["asyncio==3.4.3"],
     on_duplicate_tools="error",
 )
 

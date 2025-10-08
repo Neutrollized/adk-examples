@@ -1,0 +1,6 @@
+{
+  "entrypoint": "server.py",
+  "environment": {
+    "dependencies": ["asyncio==3.4.3"]
+  }
+}
