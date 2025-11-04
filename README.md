@@ -31,6 +31,8 @@ GOOGLE_CLOUD_LOCATION=us-central1
 
 4. Simple [Weather agent](./04_weather_agentengine_w_sessions/) that uses function tools and callback functions.  The example here also uses [sessions](https://google.github.io/adk-docs/sessions/session/) and [state](https://google.github.io/adk-docs/sessions/state/) store user preferences which get initialized during session creation.  The callback function will look for the presence of a particular key in the state and modify the system instructions accordingly (in this case, whether to provide the response in imperial or metric units).
 
+5. I explored the use of safeguard LLMs such as IBM's Granite Guardian, Meta's Llama Guard, and Google's ShieldGemma.  I leveraged Ollama to run these models on my local machine to [add guardrails to my basic search agent](./05_guardrails/). You can read my Medium article [here](https://medium.com/@glen.yu/guardrails-with-agent-development-kit-featuring-safeguard-llm-models-6d696198a063).
+
 
 ## Sample Agent demos
 [![ADK v1.16.0 w/Google Map MCP + Google Search tool](https://img.youtube.com/vi/tqddvZ0WdMk/maxresdefault.jpg)](https://www.youtube.com/watch?v=tqddvZ0WdMk)
