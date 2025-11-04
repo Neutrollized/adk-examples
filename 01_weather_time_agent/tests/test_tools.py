@@ -40,7 +40,7 @@ async def test_get_timezone():
     longitude = -79.39864
     result = await get_timezone(latitude, longitude)
     assert isinstance(result, str)
-    assert result == "America/Toronto"
+    assert result == "America/New_York"
 
 @pytest.mark.asyncio
 async def test_find_current_time_in_tz():

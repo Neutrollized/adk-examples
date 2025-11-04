@@ -30,3 +30,7 @@ GOOGLE_CLOUD_LOCATION=us-central1
 3. Another MCP example.  This time it is a [travel recommendation agent](./03_travel_rec_agent_w_maps_mcp/) that uses a local Google Maps Platform MCP server (via Stdio) to find attractions and restaurants near a give origin location.  In its current form, the directions and travel distance returned can be quite wrong and hence I wouldn't really rely on it for directions. I built my own [Google Maps MCP server (in Python)](https://github.com/Neutrollized/google-maps-mcp-server) that I'll be using going forward in future examples.
 
 4. Simple [Weather agent](./04_weather_agentengine_w_sessions/) that uses function tools and callback functions.  The example here also uses [sessions](https://google.github.io/adk-docs/sessions/session/) and [state](https://google.github.io/adk-docs/sessions/state/) store user preferences which get initialized during session creation.  The callback function will look for the presence of a particular key in the state and modify the system instructions accordingly (in this case, whether to provide the response in imperial or metric units).
+
+
+## Sample Agent demos
+[![ADK v1.16.0 w/Google Map MCP + Google Search tool](https://img.youtube.com/vi/tqddvZ0WdMk/maxresdefault.jpg)](https://www.youtube.com/watch?v=tqddvZ0WdMk)

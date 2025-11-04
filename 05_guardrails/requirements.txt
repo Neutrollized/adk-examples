@@ -1,0 +1,7 @@
+google-adk == 1.16.0
+google-genai >= 1.45.0
+httpx == 0.28.1
+typing-extensions == 4.15.0
+
+# testing
+pytest == 8.4.2
