@@ -4,7 +4,7 @@ import httpx
 import json
 from google.adk.agents.llm_agent import LlmAgent
 from google.genai import types
-from google.adk.tools import google_search
+from google.adk.tools.google_search_tool import GoogleSearchTool
 
 # used by callbacks
 from google.adk.agents.callback_context import CallbackContext
@@ -184,7 +184,7 @@ search_agent = LlmAgent(
         "I can answer your questions by searching the internet. Just ask me anything!"
     ),
     tools=[
-        google_search,
+        GoogleSearchTool(),
     ],
     before_model_callback=query_before_model_guardrails,
     after_model_callback=check_response_after_model_guardrails,
