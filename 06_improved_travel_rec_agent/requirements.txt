@@ -1,0 +1,7 @@
+google-adk >= 1.17.0
+google-genai >= 1.46.0
+fastmcp == 2.13.0.2
+mcp >= 1.19.0
+asyncio == 3.4.3
+cffi >= 2.0.0
+referencing==0.36.2

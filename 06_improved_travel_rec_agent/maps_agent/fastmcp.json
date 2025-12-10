@@ -1,0 +1,6 @@
+{
+  "entrypoint": "server.py",
+  "environment": {
+    "dependencies": ["googlemaps==4.10.0", "asyncio==3.4.3"]
+  }
+}
