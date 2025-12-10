@@ -33,6 +33,7 @@ GOOGLE_CLOUD_LOCATION=us-central1
 
 5. I explored the use of safeguard LLMs such as IBM's Granite Guardian, Meta's Llama Guard, and Google's ShieldGemma.  I leveraged Ollama to run these models on my local machine to [add guardrails to my basic search agent](./05_guardrails/). You can read my Medium article [here](https://medium.com/@glen.yu/guardrails-with-agent-development-kit-featuring-safeguard-llm-models-6d696198a063).
 
+6. Using a Google Maps MCP server that I wrote and leveraging some newer ADK features for an improved [travel recommendation agent](./06_improved_travel_rec_agent/) and more complete experience for the user.
 
 ## Sample Agent demos
 [![ADK v1.16.0 w/Google Map MCP + Google Search tool](https://img.youtube.com/vi/tqddvZ0WdMk/maxresdefault.jpg)](https://www.youtube.com/watch?v=tqddvZ0WdMk)
