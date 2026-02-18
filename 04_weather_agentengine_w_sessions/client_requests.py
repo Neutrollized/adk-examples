@@ -1,5 +1,6 @@
 import os
 import json
+from dotenv import load_dotenv
 from google import auth as google_auth
 from google.auth.transport import requests as google_requests
 import requests
@@ -8,6 +9,7 @@ import requests
 #----------------------------------
 # config
 #----------------------------------
+load_dotenv()
 project_id = os.getenv('AE_PROJECT')
 location = os.getenv('AE_LOCATION')
 reasoning_engine_resource_id = os.getenv('AE_RESOURCE_ID')

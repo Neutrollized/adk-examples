@@ -1,0 +1,9 @@
+# .env
+AE_LOCATION=us-central1
+AE_PROJECT=myproject-123
+AE_STAGING_BUCKET=my-agentengine-stagingbucket
+
+# required if you want to run adk_client.py
+AE_RESOURCE_ID=9012345678912345678
+# required if you want to run client_request.py or rest_request.sh
+AE_SESSION_ID=1234567890123456789

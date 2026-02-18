@@ -17,10 +17,13 @@ from weather_agentengine.agent import root_agent
 #-------------------------
 # config
 #-------------------------
+ENV_FILE_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", ".env")
+)
+load_dotenv()
 project_id = os.getenv('AE_PROJECT')
 location = os.getenv('AE_LOCATION')
 staging_bucket = os.getenv('AE_STAGING_BUCKET') # without gs://
-
 
 
 FLAGS = flags.FLAGS
@@ -40,11 +43,12 @@ def create() -> None:
         adk_app,
         display_name=root_agent.name,
         requirements=[
-            "google-adk (==1.5.0)",
-            "google-cloud-aiplatform[adk,agent_engines] (>=1.100.0)",
-            "google-genai (>=1.21.1)",
+            "google-adk (==1.23.0)",
+            "google-cloud-aiplatform[adk,agent_engines] (==1.137.0)",
+            "google-genai (==1.63.0)",
             "absl-py (>=2.2.1,<3.0.0)",
             "grpcio (==1.67.1)",    # suppresses some absl warnings
+            "python-dotenv (== 1.2.1)",
             "dotenv (== 0.9.9)",
         ],
         extra_packages=[
@@ -76,7 +80,7 @@ def list_agents() -> None:
 
 def main(argv: list[str]) -> None:
     del argv  # unused
-    load_dotenv()
+#    load_dotenv(dotenv_path=ENV_FILE_PATH)
 
     print(f"PROJECT: {project_id}")
     print(f"LOCATION: {location}")

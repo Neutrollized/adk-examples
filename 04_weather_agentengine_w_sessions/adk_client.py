@@ -1,5 +1,6 @@
 import os
 import json
+from dotenv import load_dotenv
 import vertexai
 from vertexai import agent_engines
 
@@ -7,6 +8,7 @@ from vertexai import agent_engines
 #--------------------
 # config
 #--------------------
+load_dotenv()
 project_id = os.getenv('AE_PROJECT')
 location = os.getenv('AE_LOCATION')
 reasoning_engine_resource_id = os.getenv('AE_RESOURCE_ID')
@@ -40,9 +42,10 @@ try:
                 user_id=user_id,
                 state={"units": "imperial"},
             )
+            print(f"> New session created with ID: {session["id"]}")
         else:
             session = adk_app.create_session(user_id=user_id)
-        print(f"> New session created with ID: {session["id"]}")
+            print(f"> Existing session found with ID: {session["id"]}")
 
 except Exception as e:
     print(f"An error occurred: {e}")
