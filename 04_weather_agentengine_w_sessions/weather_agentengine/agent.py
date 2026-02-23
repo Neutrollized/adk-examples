@@ -39,6 +39,7 @@ COUNTRY_ABBREV_DICT = {
     "USA": "United States",
     "UK": "United Kingdom",
     "GB": "United Kingdom",
+    "NL": "The Netherlands",
     "UAE": "United Arab Emirates",
     "DRC": "DR Congo",
     "CAR": "Central African Republic"
