@@ -15,7 +15,7 @@ from . import prompt
 # settings
 #-----------------
 # Model to be used by the agent
-model="gemini-2.5-flash"
+model="gemini-3.6-flash"
 google_maps_api_key=os.getenv("GOOGLE_MAPS_API_KEY")
 
 
