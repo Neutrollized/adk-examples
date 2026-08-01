@@ -11,6 +11,19 @@ from google.genai import types
 from . import prompt
 
 
+#------------------------------------------
+# suppressing "EXPERIMENTAL" warnings
+#------------------------------------------
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message=r"\[EXPERIMENTAL\].*",
+    category=UserWarning,
+    module="google.adk"
+)
+
+
 #-----------------
 # settings
 #-----------------
@@ -40,7 +53,8 @@ gmaps_agent = LlmAgent(
                     "maps_agent/server.py"
                 ],
                 env={
-                    "GOOGLE_MAPS_API_KEY": google_maps_api_key
+                    "GOOGLE_MAPS_API_KEY": google_maps_api_key,
+                    "FASTMCP_SHOW_SERVER_BANNER": "false"
                 },
             ),
         ),

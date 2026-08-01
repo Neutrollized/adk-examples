@@ -38,7 +38,6 @@ DEFAULT_PLACE_DETAILS_FIELDS = ["name", "formatted_address", "formatted_phone_nu
 # https://gofastmcp.com/servers/fastmcp#server-configuration
 mcp = FastMCP(
     name="FastMCP Google Maps Platform Server",
-#    dependencies=["googlemaps==4.10.0", "asyncio==3.4.3"],
     on_duplicate="error",
 )
 
