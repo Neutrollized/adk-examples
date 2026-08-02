@@ -21,7 +21,7 @@ from .tools.guardrails import (
 #-------------------
 # settings
 #-------------------
-model = "gemini-2.5-flash"
+model = "gemini-3.6-flash"
 
 granite_guardian_model = "ibm/granite3.3-guardian:8b"
 llama_guard_model      = "llama-guard3:8b"

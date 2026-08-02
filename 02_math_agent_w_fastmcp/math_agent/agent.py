@@ -14,7 +14,7 @@ from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, SseServerParams, S
 # settings
 #-----------------
 # Model to be used by the agent
-model="gemini-2.0-flash"
+model="gemini-3.6-flash"
 # URL for the FastMCP server
 fastmcp_server_url=os.environ.get("FASTMCP_SERVER_URL")
 

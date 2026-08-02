@@ -1,4 +1,4 @@
 # mcp
-fastmcp >= 2.12.4
-mcp == 1.16.0
+fastmcp == 3.4.5
+mcp == 1.29.0
 asyncio == 3.4.3
