@@ -81,6 +81,7 @@ async def get_directions(origin: str, destination: str, mode: str="driving") -> 
                     "distance": step['distance']['text'],
                     "duration": step['duration']['text']
                 })
+        return output
     else:
         return "No directions found for the specified locations."
 
@@ -128,6 +129,7 @@ async def get_distance(origin: str, destination: str, mode: str="driving") -> Op
             "total_duration": element['duration']['text'],
             "mode": mode,
         }
+        return output
     else:
         return "No distance information found for the specified locations." # Generic message for no results
 
@@ -153,6 +155,7 @@ async def get_geocode(address: str) -> Optional[Dict[str, Any]]:
             "lat": geocode['geometry']['location']['lat'],
             "lng": geocode['geometry']['location']['lng'],
         }
+        return output
 
     else:
         return "Address not found"
