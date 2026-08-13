@@ -1,10 +1,10 @@
 googlemaps == 4.10.0
-google-adk == 2.6.2
+google-adk == 2.6.3
 google-cloud-aiplatform == 1.163.0
-google-genai == 2.16.0
+google-genai == 2.18.0
 fastmcp == 3.4.5
 mcp == 1.29.0
 asyncio == 3.4.3
-cffi == 2.1.0
-cryptography == 46.0.7
-referencing==0.36.2
+cffi == 2.1.1
+cryptography == 50.0.0
+referencing==0.37.0
