@@ -22,7 +22,7 @@ warnings.filterwarnings(
 # settings
 # -----------------
 # Model to be used by the agent
-model = "gemini-3.6-flash"
+model = "gemini-3.7-flash"
 google_maps_api_key = os.getenv("GOOGLE_MAPS_API_KEY")
 
 
